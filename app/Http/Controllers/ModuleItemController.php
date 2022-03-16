@@ -12,6 +12,7 @@ use App\Models\ModuleItemProperty;
 use App\Models\ModuleRepeaterIteration;
 use App\Models\TaxonomyItem;
 use App\Repositories\ModuleItemsRepository;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
@@ -19,7 +20,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Intervention\Image\Facades\Image;
-use Illuminate\Support\Facades\Route;
 
 class ModuleItemController extends Controller
 {
@@ -33,9 +33,9 @@ class ModuleItemController extends Controller
     /**
      * Display a listing of the resource.
      * @param Module $module
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index(Module $module)
+    public function index(Module $module): View
     {
         return view('admin.module_items.index', compact('module'));
     }
@@ -43,9 +43,9 @@ class ModuleItemController extends Controller
     /**
      * Show the form for creating a new resource.
      * @param Module $module
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function create(Module $module)
+    public function create(Module $module): View
     {
         $module_item = new ModuleItem();
         $module_item->module = $module;
@@ -584,7 +584,7 @@ class ModuleItemController extends Controller
      * Remove the specified resource from storage.
      *
      * @param ModuleItem $module_item
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function destroy(ModuleItem $module_item)
     {

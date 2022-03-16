@@ -2,43 +2,69 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Language\StoreLanguageRequest;
+use App\Http\Requests\Language\UpdateStatusLanguageRequest;
 use App\Models\Language;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
-        $model = Language::all();
+        $languages = Language::all();
 
-        return view('admin.languages.index', compact('model'));
+        return view('admin.language.index', compact('languages'));
     }
-//
-//    /**
-//     * Show the form for creating a new resource.
-//     *
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function create()
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Store a newly created resource in storage.
-//     *
-//     * @param  \Illuminate\Http\Request  $request
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function store(Request $request)
-//    {
-//        //
-//    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return View
+     */
+    public function create(): View
+    {
+        $model = new Language;
+
+        return view('admin.language.create', compact('model'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param StoreLanguageRequest $request
+     * @return RedirectResponse
+     */
+    public function store(StoreLanguageRequest $request): RedirectResponse
+    {
+        Language::create($request->all());
+
+        return redirect()
+            ->route('admin.language.index');
+    }
+
+    /**
+     * Update status a created resource in storage.
+     *
+     * @param UpdateStatusLanguageRequest $request
+     * @param Language $language
+     * @return JsonResponse
+     */
+    public function updateStatus(UpdateStatusLanguageRequest $request, Language $language): JsonResponse
+    {
+        $language->update($request->all());
+
+        return response()->json([
+            'message' => "{$language->iso} {$language->enabled}"
+        ]);
+    }
+
 //
 //    /**
 //     * Display the specified resource.

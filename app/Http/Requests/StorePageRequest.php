@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Page;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -39,7 +38,7 @@ class StorePageRequest extends FormRequest
                 'string',
                 'max:255',
                 Rule::unique('seo', 'alias')
-                    ->ignore( optional($this->page)->seo, 'alias' ),
+                    ->ignore( optional($this->page)->seo, 'alias'),
             ],
             'seo.*.meta_keywords' => 'required|string|max:255',
             'seo.*.meta_description' => 'required|string|max:255',

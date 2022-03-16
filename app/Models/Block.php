@@ -11,6 +11,46 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 
+/**
+ * App\Models\Block
+ *
+ * @property int $id
+ * @property int $enabled
+ * @property int|null $order
+ * @property int|null $blockable_id
+ * @property string $blockable_type
+ * @property int|null $block_template_id
+ * @property int|null $admin_created_id
+ * @property int|null $admin_updated_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read Model|\Eloquent $blockable
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BlockContent[] $contents
+ * @property-read int|null $contents_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BlockTemplateRepeaterIteration[] $iterations
+ * @property-read int|null $iterations_count
+ * @property-read \App\Models\BlockTemplate|null $template
+ * @method static \Illuminate\Database\Eloquent\Builder|Block enabled()
+ * @method static \Illuminate\Database\Eloquent\Builder|Block newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Block newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Block onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Block query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereAdminCreatedId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereAdminUpdatedId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereBlockTemplateId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereBlockableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereBlockableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereEnabled($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Block whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Block withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Block withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Block extends Model
 {
     use HasFactory, HasSystemFields, SoftDeletes;

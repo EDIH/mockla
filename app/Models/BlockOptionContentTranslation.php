@@ -9,6 +9,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * App\Models\BlockOptionContentTranslation
+ *
+ * @property-read \App\Models\BlockContent|null $content
+ * @property-read \Illuminate\Database\Eloquent\Collection|BlockOptionContentTranslation[] $options
+ * @property-read int|null $options_count
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockOptionContentTranslation newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockOptionContentTranslation newQuery()
+ * @method static \Illuminate\Database\Query\Builder|BlockOptionContentTranslation onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockOptionContentTranslation query()
+ * @method static \Illuminate\Database\Query\Builder|BlockOptionContentTranslation withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|BlockOptionContentTranslation withoutTrashed()
+ * @mixin \Eloquent
+ */
 class BlockOptionContentTranslation extends Model
 {
     use HasFactory, HasSystemFields, SoftDeletes;

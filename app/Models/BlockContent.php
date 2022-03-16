@@ -11,6 +11,42 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * App\Models\BlockContent
+ *
+ * @property int $id
+ * @property int $contentable_id
+ * @property string $contentable_type
+ * @property int $block_template_attribute_id
+ * @property int|null $admin_created_id
+ * @property int|null $admin_updated_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\BlockTemplateAttribute|null $attr
+ * @property-read \App\Models\Block|null $block
+ * @property-read \App\Models\BlockTemplateRepeaterIteration|null $iteration
+ * @property-read \App\Models\BlockContentTranslation|null $translate
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BlockContentTranslation[] $translations
+ * @property-read int|null $translations_count
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent attribute($attr_id)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent newQuery()
+ * @method static \Illuminate\Database\Query\Builder|BlockContent onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent query()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent whereAdminCreatedId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent whereAdminUpdatedId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent whereBlockTemplateAttributeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent whereContentableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent whereContentableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlockContent whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|BlockContent withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|BlockContent withoutTrashed()
+ * @mixin \Eloquent
+ */
 class BlockContent extends Model
 {
     use HasFactory, HasSystemFields, SoftDeletes, HasSoftDeletedRelation;

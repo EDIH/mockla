@@ -192,6 +192,7 @@ Route::group([
     Route::resource('widget', WidgetController::class)
         ->except(['show']);
 
+    Route::post('language/update_status/{language}', [LanguageController::class, 'updateStatus'])->name('language.update_status');
     Route::resource('language', LanguageController::class)
         ->except(['show']);
 

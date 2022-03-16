@@ -14,6 +14,52 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\App;
 
+/**
+ * App\Models\Page
+ *
+ * @property int $id
+ * @property string|null $image_path
+ * @property int|null $auth_only
+ * @property int|null $parent_page_id
+ * @property int|null $admin_created_id
+ * @property int|null $admin_updated_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ModelAddition[] $additions
+ * @property-read int|null $additions_count
+ * @property-read Page|null $allParent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Block[] $blocks
+ * @property-read int|null $blocks_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|Page[] $child
+ * @property-read int|null $child_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|Page[] $childTree
+ * @property-read int|null $child_tree_count
+ * @property-read mixed $alias
+ * @property-read mixed $title
+ * @property-read Page|null $parent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PageProperty[] $properties
+ * @property-read int|null $properties_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ModelSeo[] $seos
+ * @property-read int|null $seos_count
+ * @method static Builder|Page main()
+ * @method static Builder|Page newModelQuery()
+ * @method static Builder|Page newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Page onlyTrashed()
+ * @method static Builder|Page query()
+ * @method static Builder|Page whereAdminCreatedId($value)
+ * @method static Builder|Page whereAdminUpdatedId($value)
+ * @method static Builder|Page whereAuthOnly($value)
+ * @method static Builder|Page whereCreatedAt($value)
+ * @method static Builder|Page whereDeletedAt($value)
+ * @method static Builder|Page whereId($value)
+ * @method static Builder|Page whereImagePath($value)
+ * @method static Builder|Page whereParentPageId($value)
+ * @method static Builder|Page whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Page withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Page withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Page extends Model
 {
     use HasFactory, HasSystemFields, softDeletes, HasSoftDeletedRelation;
@@ -26,6 +72,7 @@ class Page extends Model
     protected $softDelete_relations = [
         'addition',
         'seo',
+        'child'
     ];
 
     protected $lang_id;

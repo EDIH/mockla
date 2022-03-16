@@ -5,12 +5,15 @@ namespace App\Repositories;
 use App\Models\Page;
 use App\Repositories\Lingual\AdditionRepository;
 use App\Repositories\Lingual\SeoRepository;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class PageRepository
 {
     private $additionRepository;
     private $seoRepository;
+    private $page;
 
     public function __construct(
         AdditionRepository $additionRepository,
@@ -39,17 +42,77 @@ class PageRepository
 
         DB::transaction(
             function () use ($pageInput, $seoInput, $additionsInput) {
-                if ($page = Page::create($pageInput)) {
+                if ($this->page = Page::create($pageInput)) {
 
                     $additionTranslations = $this->additionRepository->getAttributesArrayTranslations($additionsInput);
-                    $page->additions()->createMany($additionTranslations);
+                    $this->page->additions()->createMany($additionTranslations);
 
                     $seoTranslations = $this->seoRepository->getAttributesArrayTranslations($seoInput);
-                    $page->seos()->createMany($seoTranslations);
+                    $this->page->seos()->createMany($seoTranslations);
 
-                    return $page;
+                    return $this->page;
                 }
             });
         return null;
+    }
+
+    /**
+     * @param array $input
+     * @return Page
+     */
+    public function update(Page $page, array $input): ?Page
+    {
+        $this->page = $page;
+
+        $pageInput = $input['page'];
+        $seoInput = $input['seo'];
+        $additionsInput = $input['additions'];
+
+        DB::transaction(
+            function () use ($pageInput, $seoInput, $additionsInput) {
+                if ($this->page->update($pageInput)) {
+
+                    $additionTranslations = $this->additionRepository->getAttributesArrayTranslations($additionsInput);
+                    foreach ($additionTranslations as $translation) {
+                        $this
+                            ->page
+                            ->additions()
+                            ->updateOrCreate(
+                                Arr::only($translation, 'lang_id'),
+                                $translation
+                            );
+                    }
+
+                    $seoTranslations = $this->seoRepository->getAttributesArrayTranslations($seoInput);
+                    foreach ($seoTranslations as $translation) {
+                        $this
+                            ->page
+                            ->seos()
+                            ->updateOrCreate(
+                                Arr::only($translation, 'lang_id'),
+                                $translation
+                            );
+                    }
+
+                    return $this->page;
+                }
+            });
+
+        return null;
+    }
+
+    /**
+     * @param string $alias
+     * @return Page
+     */
+    public function getByAlias(string $alias): Page
+    {
+        return Page::whereHas('seo', function (Builder $query) use ($alias) {
+            $query
+                ->where('alias', $alias)
+                ->orWhere('alias', 404);
+        })
+            ->with(['seo', 'addition'])
+            ->first();
     }
 }
