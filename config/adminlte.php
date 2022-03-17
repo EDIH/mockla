@@ -365,7 +365,7 @@ return [
         ['header' => 'ПАРАМЕТРЫ'],
         [
             'text'        => 'languages',
-            'url'         => 'admin/languages',
+            'url'         => 'admin/language',
             'icon'        => 'fas fa-language',
 //            'label'       => 3,
             'label_color' => 'success',

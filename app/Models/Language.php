@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * App\Models\Language
@@ -44,6 +45,20 @@ class Language extends Model
         'iso',
         'enabled',
     ];
+
+    protected static function booted()
+    {
+        static::created(function () {
+            Cache::flush('languages');
+            Cache::rememberForever('languages', function () {
+                return Language::all()
+                    ->map(function ($language) {
+                        return [$language->iso => $language->id];
+                    })
+                    ->collapse();
+            });
+        });
+    }
 
     public function scopeEnabled($query) {
         return $query->where('enabled', true);
