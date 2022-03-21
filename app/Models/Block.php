@@ -185,11 +185,11 @@ class Block extends Model
         $fillings = collect([
             'contents' => $this
                 ->contents()
-                ->with('translate')
+                ->with('translations')
                 ->get(),
             'iterations' => $this->groupedIterationsByRepeaterId($this)
         ]);
-
+//dd($fillings['contents']);
         return $fillings;
     }
 }

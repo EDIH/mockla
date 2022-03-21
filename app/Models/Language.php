@@ -46,6 +46,10 @@ class Language extends Model
         'enabled',
     ];
 
+    protected $casts = [
+        'enabled' => 'boolean',
+    ];
+
     protected static function booted()
     {
         static::created(function () {

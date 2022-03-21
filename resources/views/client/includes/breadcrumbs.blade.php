@@ -4,15 +4,14 @@
  * @var $model \App\Models\Page_properties;
  */
 ?>
-{{--@dd($model)--}}
-@if($model->seoable->parent_page_id && $model->alias != '404')
+<!--TODO нужно доработать конструктор страницы для НЦ-->
+
+@if($page->parent_page_id && $page->seo->alias != '404')
             <div class="breadcrumbs main-container">
                 <div class="breadcrumbs__list">
                     <ul class="breadcrumb">
-                        @if($model->alias == 'main')
-                            <!-- <li>
-                                <span>{{ $model->title }}</span>
-                            </li> -->
+                        @if($page->seo->alias == 'main')
+                                <span>{{ $page->seo->title }}</span>
                         @else
                             <a href="{{ url('/') }}">
                                 <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +20,7 @@
                                 {{ $var['to-main'] }}
                             </a>
                             <span class="devider"> | </span>
-                            <span class="current-page">{{ $model->title }}</span>
+                            <span class="current-page">{{ $page->seo->title }}</span>
                         @endif
                 </div>
             </div>

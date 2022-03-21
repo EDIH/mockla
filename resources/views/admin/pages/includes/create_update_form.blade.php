@@ -89,9 +89,11 @@
                                 <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active"
-                                           id="custom-tabs-two-home-tab"
-                                           data-toggle="pill" href="#custom-tabs-two-home"
-                                           role="tab" aria-controls="custom-tabs-two-home"
+                                           id="addition_tab_link"
+                                           data-toggle="pill"
+                                           href="#addition_tab_{{ $lang->iso }}"
+                                           role="tab"
+                                           aria-controls="custom-tabs-two-home"
                                            aria-selected="false"
                                         >
                                             @lang('additions.form_tab')
@@ -99,9 +101,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                           id="custom-tabs-two-profile-tab"
+                                           id="seo_tab_link"
                                            data-toggle="pill"
-                                           href="#custom-tabs-two-profile"
+                                           href="#seo_tab_{{ $lang->iso }}"
                                            role="tab"
                                            aria-controls="custom-tabs-two-profile"
                                            aria-selected="false"
@@ -113,11 +115,11 @@
                             </div>
                             <div class="card-body">
                                 <div class="tab-content" id="custom-tabs-two-tabContent">
-                                    <div class="tab-pane fade show active" id="custom-tabs-two-home" role="tabpanel"
+                                    <div class="tab-pane fade show active" id="addition_tab_{{ $lang->iso }}" role="tabpanel"
                                          aria-labelledby="custom-tabs-two-home-tab">
                                         @include('admin.additions.includes.create_update_form')
                                     </div>
-                                    <div class="tab-pane fade" id="custom-tabs-two-profile" role="tabpanel"
+                                    <div class="tab-pane fade" id="seo_tab_{{ $lang->iso }}" role="tabpanel"
                                          aria-labelledby="custom-tabs-two-profile-tab">
                                         @include('admin.seo.includes.create_update_form')
                                     </div>

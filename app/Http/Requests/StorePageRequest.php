@@ -24,6 +24,7 @@ class StorePageRequest extends FormRequest
      */
     public function rules(): array
     {
+//        dd($this->page->seos);
         return [
             'parent_page_id' => 'exists:pages,id',
 
