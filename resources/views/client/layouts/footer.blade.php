@@ -53,21 +53,21 @@
                 <li class="footer__menu-item"><a class="footer__menu-lnk" href="#">Партнерам</a></li>
                 <li class="footer__menu-item"><a class="footer__menu-lnk" href="#">Экспертам</a></li>
                 <li class="footer__menu-item"><a class="footer__menu-lnk" href="#">Вакансии Нетологии</a></li>
-                @php
-                    $item = \App\Models\Module::where('name', 'documents')->first()->items()->first();
-                    $properties = $item->props->mapWithKeys(function ($prop) {
-                        return [$prop->type->key => $prop->value];
-                    });
-                @endphp
-                <li class="footer__menu-item"><a class="footer__menu-lnk" href="{{ route('client.documents.item', ['alias' => $item->seo->alias]) }}">Правовая информация</a></li>
-                @php
-                    $item = \App\Models\Module::where('name', 'intelligences')->first()->items()->first();
-                    $properties = $item->props->mapWithKeys(function ($prop) {
-                        return [$prop->type->key => $prop->value];
-                    });
-                @endphp
-                <li class="footer__menu-item"><a class="footer__menu-lnk" href="{{ route('client.intelligences.item', ['alias' => $item->seo->alias]) }}">Сведения об образовательной организации</a></li>
-                <li class="footer__menu-item"><a class="footer__menu-lnk" href="{{ url('/mb_biblioteka') }}">Справочная литература по защите информации</a></li>
+{{--                @php--}}
+{{--                    $item = \App\Models\Module::where('name', 'documents')->first()->items()->first();--}}
+{{--                    $properties = $item->props->mapWithKeys(function ($prop) {--}}
+{{--                        return [$prop->type->key => $prop->value];--}}
+{{--                    });--}}
+{{--                @endphp--}}
+{{--                <li class="footer__menu-item"><a class="footer__menu-lnk" href="{{ route('client.documents.item', ['alias' => $item->seo->alias]) }}">Правовая информация</a></li>--}}
+{{--                @php--}}
+{{--                    $item = \App\Models\Module::where('name', 'intelligences')->first()->items()->first();--}}
+{{--                    $properties = $item->props->mapWithKeys(function ($prop) {--}}
+{{--                        return [$prop->type->key => $prop->value];--}}
+{{--                    });--}}
+{{--                @endphp--}}
+{{--                <li class="footer__menu-item"><a class="footer__menu-lnk" href="{{ route('client.intelligences.item', ['alias' => $item->seo->alias]) }}">Сведения об образовательной организации</a></li>--}}
+{{--                <li class="footer__menu-item"><a class="footer__menu-lnk" href="{{ url('/mb_biblioteka') }}">Справочная литература по защите информации</a></li>--}}
                 <li class="footer__menu-item"><a class="footer__menu-lnk" href="#">Контакты</a></li>
                 <li class="footer__menu-item"><a class="footer__menu-lnk" href="#">Логотипы Kiberus</a></li>
                 <li class="footer__menu-item"><a class="footer__menu-lnk" href="#">Отзывы</a></li>

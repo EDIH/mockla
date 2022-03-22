@@ -234,55 +234,6 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'ШАБЛОНЫ'],
-        [
-            'text'        => 'Мокапы',
-//            'url'         => 'admin/modules',
-            'icon'        => '/img/admin/blog.svg',
-//            'label'       => 3,
-            'label_color' => 'success',
-            'submenu' => [
-                [
-                    'text' => 'Список мокапов ',
-                    'url'  => '/admin/modules/items/list/21',
-                ],
-                [
-                    'text' => 'Brand',
-                    'url'  => '/admin/taxonomy/items/list/1',
-                ],
-                [
-                    'text' => 'Model',
-                    'url'  => '/admin/taxonomy/items/list/2',
-                ],
-                [
-                    'text' => 'Orientation',
-                    'url'  => '/admin/taxonomy/items/list/3',
-                ],
-                [
-                    'text' => 'Hand',
-                    'url'  => '/admin/taxonomy/items/list/4',
-                ],
-            ],
-
-        ],
-        [
-            'text'        => 'Тарифные планы',
-//            'url'         => 'admin/modules',
-            'icon'        => '/img/admin/blog.svg',
-//            'label'       => 3,
-            'label_color' => 'success',
-            'submenu' => [
-                [
-                    'text' => 'Список планов ',
-                    'url'  => '/admin/modules/items/list/23',
-                ],
-                [
-                    'text' => 'Типы планов',
-                    'url'  => '/admin/taxonomy/items/list/6',
-                ],
-            ],
-
-        ],
         ['header' => 'СТРУКТУРА'],
         [
             'text'        => 'Доступы',

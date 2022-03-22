@@ -12,20 +12,20 @@
                     <span></span>
                     <span></span>
                 </div>
-                <a href="{{ url('/courses') }}">Каталог курсов</a>
+{{--                <a href="{{ url('/courses') }}">Каталог курсов</a>--}}
                 <ul class="header__courses" style="display: none">
-                    @php
-                        $course_categories = \App\Models\Taxonomy::where('key', 'course-category')
-                            ->first()
-                            ->items;
-                    @endphp
-                    @foreach($course_categories as $category)
-                        <li>
-                            <a href="{{ route('client.courses.item', ['alias' => $category->key]) }}">
-                                {{ $category->name }}
-                            </a>
-                        </li>
-                    @endforeach
+{{--                    @php--}}
+{{--                        $course_categories = \App\Models\Taxonomy::where('key', 'course-category')--}}
+{{--                            ->first()--}}
+{{--                            ->items;--}}
+{{--                    @endphp--}}
+{{--                    @foreach($course_categories as $category)--}}
+{{--                        <li>--}}
+{{--                            <a href="{{ route('client.courses.item', ['alias' => $category->key]) }}">--}}
+{{--                                {{ $category->name }}--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    @endforeach--}}
                     {{--                    <li><a href="#">Курс 2</a></li>--}}
                     {{--                    <li><a href="#">Курс 3</a></li>--}}
                     {{--                    <li><a href="#">Курс 4</a></li>--}}
