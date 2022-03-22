@@ -7,6 +7,7 @@ use App\Models\BlockContent;
 use App\Models\BlockTemplateAttribute;
 use App\Models\BlockTemplateRepeaterIteration;
 use App\Repositories\ImageRepository;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\App;
 
@@ -29,34 +30,36 @@ class ContentService
 
 
             if (isset($data['content'])) {
-                foreach ($data['content'] as $block_template_attribute_id => $value) {
-                    $block_template_attribute_model = BlockTemplateAttribute::find($block_template_attribute_id);
+                foreach ($data['content'] as $iso => $content) {
+                    foreach ($content as $block_template_attribute_id => $value) {
+                        $block_template_attribute_model = BlockTemplateAttribute::find($block_template_attribute_id);
 
-                    if ($block_template_attribute_model->type == 0) {
+                        if ($block_template_attribute_model->type == 0) {
 
-                        $value = $image_repository
-                            ->uploadImage($value, 'contents');
+                            $value = $image_repository
+                                ->uploadImage($value, 'contents');
 
-                    } elseif ($block_template_attribute_model->type == 5) {
+                        } elseif ($block_template_attribute_model->type == 5) {
 
-                        $fileURL = $value->store('contents');
-                        $path_ar = explode('/', $fileURL);
-                        $value = end($path_ar);
-                    }
+                            $fileURL = $value->store('contents');
+                            $path_ar = explode('/', $fileURL);
+                            $value = end($path_ar);
+                        }
 
-                    if ($block_content = $contents[$block_template_attribute_id] ?? null) {
-                        $block_content->translate->update([
-                            'value' => $value
-                        ]);
-                    } else {
-                        $block_content = $block->contents()->create([
-                            'block_template_attribute_id' => $block_template_attribute_id
-                        ]);
+                        if ($block_content = $contents[$block_template_attribute_id]) {
+                            $block_content->translate->update([
+                                'value' => $value
+                            ]);
+                        } else {
+                            $block_content = $block->contents()->create([
+                                'block_template_attribute_id' => $block_template_attribute_id
+                            ]);
 
-                        $block_content->translations()->create([
-                            'value' => $value,
-                            'lang_id' => 3,
-                        ]);
+                            $block_content->translations()->create([
+                                'value' => $value,
+                                'lang_id' => Cache::get('languages')->get($iso),
+                            ]);
+                        }
                     }
                 }
             }

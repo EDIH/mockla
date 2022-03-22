@@ -3,8 +3,9 @@
     @php
         /** @var $block \App\Models\Block */
         /** @var $attribute \App\Models\BlockTemplateAttribute */
+        /** @var $language \App\Models\Language */
         $prop = $block->contents()->attribute($attribute->id)->first();
-        $input_name = "content[{$attribute->id }]";
+        $input_name = "content[{$language->iso}][{$attribute->id }]";
 
     @endphp
     @switch($attribute->type)

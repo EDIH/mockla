@@ -1,8 +1,12 @@
 <?php
 /**
- * @var $content \App\Models\Block_contents;
- * @var $block \App\Models\Block;
+ * @var $content BlockContent;
+ * @var $block Block;
  */
+
+use App\Models\Block;
+use App\Models\BlockContent;
+
 ?>
 
 <form
@@ -56,7 +60,7 @@
         <div class="card-body">
             <div class="tab-content" id="custom-tabs-two-tabContent">
                 @foreach(\App\Models\Language::where('enabled', true)->get() as $language)
-                    <div class="tab-pane fade show active" id="content_tab_{{ $language->iso }}" role="tabpanel"
+                    <div class="tab-pane fade show @if($loop->first) active @endif" id="content_tab_{{ $language->iso }}" role="tabpanel"
                          aria-labelledby="content_tab_{{ $language->iso }}">
                         @php
                             $block_fillings = $block->fillings();
@@ -130,7 +134,7 @@
             /*padding: 20px;*/
             /*margin: 0 0 15px 0;*/
             border-style: dashed;
-            border-width: 0px;
+            border-width: 0;
             border-color: #000;
         }
         .move {
