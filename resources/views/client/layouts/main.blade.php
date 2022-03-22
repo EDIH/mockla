@@ -18,6 +18,9 @@
 {{--end header section--}}
 
 <main class="main" id="main">
+    @foreach(\App\Models\Language::where('enabled', true)->get() as $language)
+        <a href="{{ url('/'.$language->iso) }}">{{ $language->iso }}</a>
+    @endforeach
     <article>
     {{--content section--}}
         @if($page->seo->alias == "user-login" || $page->seo->alias == "user-register" || $page->seo->alias == "courses" || $page->seo->alias == "blog" || $page->seo->alias == "knowledge"  || $page->seo->alias == "career")
