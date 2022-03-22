@@ -119,11 +119,24 @@ body{
     &-item{
       margin-right: 7.4rem;
       margin-bottom: 0;
+      padding-left: 0;
       &:last-child{
         margin-right: 10.3rem;
       }
       &.has-child{
         position: relative;
+        &:after{
+            content: "";
+            position: absolute;
+            top: 9px;
+            right: -18px;
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-bottom: 2px solid black;
+            border-right: 2px solid black;
+            transform: rotate(45deg);
+        }
         ul{
           display: none;
           position: absolute;
