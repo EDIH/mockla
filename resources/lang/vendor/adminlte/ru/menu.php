@@ -18,4 +18,5 @@ return [
     'information'                   => 'Информация',
     'languages'                     => 'Языки',
     'templates'                     => 'Шаблоны',
+    'menu'                          => 'Меню',
 ];

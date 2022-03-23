@@ -284,14 +284,6 @@ return [
 //            'label'       => 4,
             'label_color' => 'success',
         ],
-//        [
-//            'text'        => 'Меню',
-//            'url'         => 'admin/menu',
-////            'icon'        => '/img/admin/menu.svg',
-//            'icon'        => 'far fa-fw fa-address-card',
-////            'label'       => 3,
-//            'label_color' => 'success',
-//        ],
         [
             'text'        => 'Модули',
             'url'         => 'admin/modules',
@@ -331,6 +323,14 @@ return [
         [
             'text'        => 'Контакты',
             'url'         => 'admin/contacts',
+            'icon'        => 'far fa-fw fa-address-card',
+//            'label'       => 3,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'menu',
+            'url'         => 'admin/menu',
+//            'icon'        => '/img/admin/menu.svg',
             'icon'        => 'far fa-fw fa-address-card',
 //            'label'       => 3,
             'label_color' => 'success',
