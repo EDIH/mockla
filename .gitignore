@@ -19,4 +19,6 @@ webpack.mix.js
 mix-manifest.json
 package-lock.json
 package.json
-public/*
+public/admin/*
+public/css/*
+public/js/*
