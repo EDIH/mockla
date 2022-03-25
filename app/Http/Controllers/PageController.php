@@ -72,10 +72,10 @@ class PageController extends Controller
 //    public function show(Request $request)
     public function show(string $alias = 'main'): View
     {
-//        $page = $this->pageRepository->getByAlias($alias);
-        $page = Page::with(['seo', 'addition'])->first();
+        $page = $this->pageRepository->getByAlias($alias);
+//        $page = Page::with(['seo', 'addition'])->first();
 //        dd($page->seo->title);
-
+//dd($page);
         if ($page->auth_only && !auth()->user()) {
             echo 403;
             die;

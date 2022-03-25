@@ -10,8 +10,10 @@ use App\Models\ModuleAttribute;
 use App\Models\ModuleItem;
 use App\Models\ModuleItemProperty;
 use App\Models\ModuleRepeaterIteration;
+use App\Models\Page;
 use App\Models\TaxonomyItem;
 use App\Repositories\ModuleItemsRepository;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -311,8 +313,19 @@ class ModuleItemController extends Controller
     {
         if ($model = ModelSeo::where('alias', $alias)->first()) {
             $module_item = $model->seoable;
+            $page = new Page;
+            $page->seo = $model;
+//            $alias = $module_item->module->name;
+//            dd($alias);
+//            $page = Page::whereHas('seo', function (Builder $query) use ($alias) {
+//                $query
+//                    ->where('alias', $alias)
+//                    ->orWhere('alias', 404);
+//            })
+//                ->with(['seo', 'addition'])
+//                ->first();
 
-            return view("client.module_items.{$module_item->module->name}.item", compact('module_item', 'model'));
+            return view("client.module_items.{$module_item->module->name}.item", compact('module_item', 'model', 'page'));
         } elseif ($taxonomy_item = TaxonomyItem::where('key', $alias)->first()) {
 
             $module_name = Str::of(request()->route()->getPrefix())->ltrim('/');
