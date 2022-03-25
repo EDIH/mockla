@@ -10,36 +10,36 @@
 </div>
 
 {{--header section--}}
-@if($page->seo->alias == "user-login" || $page->seo->alias == "user-register")
+{{--@if($page->seo->alias == "user-login" || $page->seo->alias == "user-register")--}}
 
-@else
-    @include('client.layouts.header')
-@endif
+{{--@else--}}
+{{--    @include('client.layouts.header')--}}
+{{--@endif--}}
 {{--end header section--}}
 
-<main class="main" id="main">
-    <article>
+{{--<main class="main" id="main">--}}
+{{--    <article>--}}
     {{--content section--}}
-        @if($page->seo->alias == "user-login" || $page->seo->alias == "user-register" || $page->seo->alias == "courses" || $page->seo->alias == "blog" || $page->seo->alias == "knowledge"  || $page->seo->alias == "career")
+{{--        @if($page->seo->alias == "user-login" || $page->seo->alias == "user-register" || $page->seo->alias == "courses" || $page->seo->alias == "blog" || $page->seo->alias == "knowledge"  || $page->seo->alias == "career")--}}
 
-        @else
-            @yield('breadcrumbs')
-        @endif
+{{--        @else--}}
+{{--            @yield('breadcrumbs')--}}
+{{--        @endif--}}
     @yield('content')
     {{--end content section--}}
-    </article>
-</main>
+{{--    </article>--}}
+{{--</main>--}}
 
 {{--modal section--}}
 {{--@include('client.block_templates.templates.modal')--}}
 {{--end modal section--}}
 
 {{--footer section--}}
-@if($page->seo->alias == "user-login" || $page->seo->alias == "user-register")
+{{--@if($page->seo->alias == "user-login" || $page->seo->alias == "user-register")--}}
 
-@else
-    @include('client.layouts.footer')
-@endif
+{{--@else--}}
+{{--    @include('client.layouts.footer')--}}
+{{--@endif--}}
 
 @yield('client_scripts')
 

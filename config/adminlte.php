@@ -234,6 +234,14 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        ['header' => 'ОДНОСТРАНИЧНИКИ'],
+        [
+            'text'        => 'Сайты',
+            'url'         => 'admin/modules/items/list/24',
+            'icon'        => 'far fa-fw fa-file',
+//            'label'       => 4,
+            'label_color' => 'success',
+        ],
         ['header' => 'СТРУКТУРА'],
         [
             'text'        => 'Доступы',

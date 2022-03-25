@@ -1,6 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="none"/>
     <title>{{ $page->seo->title }}</title>
     <link href="{{ url('/') }}/css/fonts.css?v={{ time() }}" rel="stylesheet">
     <link href="{{ url('/') }}/css/style.css?v={{ time() }}" rel="stylesheet">
