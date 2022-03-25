@@ -236,31 +236,6 @@ return [
         ],
         ['header' => 'СТРУКТУРА'],
         [
-            'text'        => 'Доступы',
-//            'url'         => 'admin/modules',
-            'icon'        => '/img/admin/users.svg',
-//            'label'       => 3,
-            'label_color' => 'success',
-            'submenu' => [
-                [
-                    'text' => 'Пользователи',
-                    'url'  => '/admin/user',
-                ],
-                [
-                    'text' => 'Роли',
-                    'url'  => '/admin/role',
-                ],
-                [
-                    'text' => 'Группы прав',
-                    'url'  => '/admin/permission_group',
-                ],
-                [
-                    'text' => 'Права',
-                    'url'  => '/admin/permission',
-                ],
-            ]
-        ],
-        [
             'text'        => 'templates',
 //            'url'         => 'admin/block_templates',
             'icon'        => '/img/admin/templates.svg',
@@ -306,6 +281,31 @@ return [
             'label_color' => 'success',
         ],
         ['header' => 'ПАРАМЕТРЫ'],
+        [
+            'text'        => 'Доступы',
+//            'url'         => 'admin/modules',
+            'icon'        => '/img/admin/users.svg',
+//            'label'       => 3,
+            'label_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'Пользователи',
+                    'url'  => '/admin/user',
+                ],
+                [
+                    'text' => 'Роли',
+                    'url'  => '/admin/role',
+                ],
+                [
+                    'text' => 'Группы прав',
+                    'url'  => '/admin/permission_group',
+                ],
+                [
+                    'text' => 'Права',
+                    'url'  => '/admin/permission',
+                ],
+            ]
+        ],
         [
             'text'        => 'languages',
             'url'         => 'admin/language',
