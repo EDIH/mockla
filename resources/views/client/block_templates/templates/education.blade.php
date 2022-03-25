@@ -9,10 +9,10 @@
                 Your lifetime
                 skill-booster
             </h2>
-            <h3 class="education__subtitle">
+            <h3 class="education__subtitle section-subtitle">
                 Software, lectures, master classes, real practice, all of that is your to use for your success!
             </h3>
-            <a href="#" class="education__lnk">
+            <a href="#" class="education__lnk grey-button">
                 Details
                 <svg width="33" height="17" viewBox="0 0 33 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 8.5H30" stroke="#0D0E17" stroke-width="2.5"/>
