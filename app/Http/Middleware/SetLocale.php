@@ -20,7 +20,10 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next)
     {
-//        dd(1);
+        if($request->segment(1) == config('app.fallback_locale')){
+            return redirect('/');
+        };
+
         $isLocale = Language::where([
             'iso' => $request->segment(1),
         ])->enabled()->exists();
