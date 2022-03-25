@@ -47,6 +47,7 @@ class ContentService
                         }
 
                         if ($block_content = $contents[$block_template_attribute_id]) {
+                            dd($block_content->translate);
                             $block_content->translate->update([
                                 'value' => $value
                             ]);
