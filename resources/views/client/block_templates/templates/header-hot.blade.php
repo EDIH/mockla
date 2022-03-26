@@ -1,5 +1,5 @@
 
-<header id="header" class="header">
+<header id="header" class="header header-hot">
     <div class="header__container main-container">
         <div class="header__logo">
             <a href="{{ url('/') }}">
