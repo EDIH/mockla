@@ -27,9 +27,21 @@
 
         </div>
         <div class="greetings__center-title">
+            <span>
             I`m glad that<br>
             you`re ready<br>
             for the journey:
+            </span>
+            <svg class="pink-star" width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M56.5287 28.5038C41.1612 28.753 28.7504 41.1653 28.5037 56.5334L28.5 57L28.4962 56.5287C28.247 41.1612 15.8347 28.7504 0.466621 28.5037L0 28.5L0.471318 28.4962C15.9941 28.2445 28.5 15.5827 28.5 0C28.5 15.5827 41.0059 28.2445 56.5287 28.4962L57 28.5L56.5287 28.5038Z" fill="#FE446F"/>
+            </svg>
+            <svg class="circle" width="99" height="99" viewBox="0 0 99 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="49.5" cy="49.5" r="49.5" fill="#ED6A32"/>
+            </svg>
+            <svg class="blue" width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M56.5287 28.5038C41.1612 28.753 28.7504 41.1653 28.5037 56.5334L28.5 57L28.4962 56.5287C28.247 41.1612 15.8347 28.7504 0.466621 28.5037L0 28.5L0.471318 28.4962C15.9941 28.2445 28.5 15.5827 28.5 0C28.5 15.5827 41.0059 28.2445 56.5287 28.4962L57 28.5L56.5287 28.5038Z" fill="#24C4D5"/>
+            </svg>
+
         </div>
         <div class="greetings__result">
             <div class="greetings__result-first">
