@@ -28,8 +28,6 @@ class SetLocale
             'iso' => $request->segment(1),
         ])->enabled()->exists();
 //
-//        dd($isLocale);
-//
 //        App::setLocale();
 ////        dd($request->alias);
 ////        dd($request->segment(1));

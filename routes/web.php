@@ -27,6 +27,7 @@ use App\Http\Controllers\PermissionGroupController;
 use App\Http\Controllers\WidgetController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Forum\TopicController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -265,6 +266,16 @@ Route::get('{locale?}/{alias?}', [PageController::class, 'show'])
     ->where('locale', '[a-z]{2}')
     ->middleware('locale');
 //
+
+Route::group([
+    'prefix' => '{lang?}',
+    'where' => ['lang' => '[a-zA-Z]{2}'],
+    'middleware' => ['locale']
+], function () {
+    Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show');
+}
+);
+
 Route::get('/{alias?}', [PageController::class, 'show'])->name('client.page.show')->middleware('locale');
 
 Route::get('/comment/create/{comment}', [CommentController::class, 'create'])->name('client.comment.create')->middleware('auth');
@@ -322,7 +333,6 @@ Route::post('/comment/create', [CommentController::class, 'store'])->name('clien
 //    ->where('locale', '[a-z]{2}')
 //    ->middleware('locale');
 //Route::get('/{alias?}', [PageController::class, 'show'])->name('page.show')->middleware('locale');
-
 
 
 //Route::get('/{alias?}')->middleware('locale');
