@@ -75,7 +75,7 @@ class PageController extends Controller
         $page = $this->pageRepository->getByAlias($alias);
 //        $page = Page::with(['seo', 'addition'])->first();
 //        dd($page->seo->title);
-//dd($page);
+//dd($page->seo);
         if ($page->auth_only && !auth()->user()) {
             echo 403;
             die;

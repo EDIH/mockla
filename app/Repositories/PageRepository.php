@@ -107,12 +107,19 @@ class PageRepository
      */
     public function getByAlias(string $alias): Page
     {
-        return Page::whereHas('seo', function (Builder $query) use ($alias) {
-            $query
-                ->where('alias', $alias)
-                ->orWhere('alias', 404);
-        })
-            ->with(['seo', 'addition'])
-            ->first();
+//        TOFIX add default model value instead 404
+        return
+            Page::whereHas('seo', function (Builder $query) use ($alias) {
+                $query->where('alias', $alias);
+            })
+                ->with(['seo', 'addition'])
+                ->first()
+            ??
+            Page::whereHas('seo', function (Builder $query) {
+                $query->where('alias', 404);
+            })
+                ->with(['seo', 'addition'])
+                ->first();
+
     }
 }
