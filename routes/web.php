@@ -262,9 +262,9 @@ Route::prefix('topic')->group(function () {
 Route::get('search', [SearchController::class, 'index'])->name('client.search');
 Route::get('module_items/filter/{params?}', [ModuleItemController::class, 'filter'])->name('client.module_items.filter');
 //Route::get('filter');
-Route::get('{locale?}/{alias?}', [PageController::class, 'show'])
-    ->where('locale', '[a-z]{2}')
-    ->middleware('locale');
+//Route::get('{locale?}/{alias?}', [PageController::class, 'show'])
+//    ->where('locale', '[a-z]{2}')
+//    ->middleware('locale');
 //
 
 Route::group([
@@ -272,6 +272,11 @@ Route::group([
     'where' => ['lang' => '[a-zA-Z]{2}'],
     'middleware' => ['locale']
 ], function () {
+//    foreach (\App\Models\Module::all() as $module) {
+//        Route::prefix($module->name)->group(function () use ($module) {
+//            Route::get('{alias}', [App\Http\Controllers\ModuleItemController::class, 'item'])->name("{$module->name}.item");
+//        });
+//    }
     Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show');
 }
 );

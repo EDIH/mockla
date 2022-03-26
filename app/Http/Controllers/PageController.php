@@ -72,6 +72,7 @@ class PageController extends Controller
 //    public function show(Request $request)
     public function show(string $alias = 'main'): View
     {
+        dd($alias);
         $page = $this->pageRepository->getByAlias($alias);
 //        $page = Page::with(['seo', 'addition'])->first();
 //        dd($page->seo->title);
