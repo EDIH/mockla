@@ -24,4 +24,6 @@ public/css/*
 public/js/*
 public/uploads/*
 public/packages/*
+public/vendor/*
+web.config
 
