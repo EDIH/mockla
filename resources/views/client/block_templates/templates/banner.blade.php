@@ -1,5 +1,6 @@
 <?php
 $contents = $block->mappedByKey();
+//dd($contents);
 ?>
 <section class="banner">
     <div class="banner__container padding-left">

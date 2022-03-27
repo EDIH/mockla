@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * App\Models\Block
@@ -116,7 +118,8 @@ class Block extends Model
             ->template
             ->attrs
             ->mapWithKeys(function ($attr) use ($contents) {
-                $value = $contents[$attr->id]->translations[0] ?? $attr;
+//                dd();
+                $value = $contents[$attr->id]->mappedByLang()[Cache::get('languages')->get(App::getLocale())];
 //                $value = $contents[$attr->id]->translations[0] ?? $attr;
 //                dd($contents);
 //                if(!$contents[$attr->id]) {
