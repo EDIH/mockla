@@ -583,12 +583,31 @@ body{
   &__subtitle{
     color: white;
     margin-bottom: 1.6rem;
+    &.section-subtitle{
+      font-weight: 700;
+    }
   }
   &__label{
     margin-bottom: 5.4rem;
     display: block;
+    &-big{
+      .section-subtitle{
+        font-weight: 300;
+      }
+    }
     &:last-child{
       margin-bottom: 0;
+    }
+    input{
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 1.8rem 3rem;
+      font-weight: 300;
+      font-size: 1.8rem;
+      line-height: 3rem;
+      color: #0D0E17;
+      border: none;
+      width: 100%;
     }
   }
   &__submit{
@@ -1541,4 +1560,71 @@ body{
       }
     }
   }
+}
+.share{
+  margin-top: 3rem;
+  margin-bottom: 21rem;
+  &__container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__content{
+    width: calc(50% - 6rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 6rem;
+    align-items: flex-start;
+  }
+  &__title{
+    margin-bottom: 10rem;
+  }
+  &__image{
+    width: calc(50% + 6rem);
+    border-radius: 50px 0 0 50px;
+    overflow: hidden;
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.become{
+  margin-top: 21rem;
+  margin-bottom: 16.4rem;
+  &__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__elements{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > svg{
+      margin: 0 17px;
+      margin-top: -5rem;
+    }
+  }
+  &__left{
+    text-align: left;
+  }
+  &__element{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__name{
+    font-weight: 700;
+    font-size: 2.2rem;
+    line-height: 3rem;
+    color: #0D0E17;
+    margin-top: 2.4rem;
+  }
+  &__title{
+    margin-bottom: 8rem;
+    max-width: 370px;
+  }
+
 }
