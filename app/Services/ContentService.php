@@ -25,9 +25,7 @@ class ContentService
 //        try {
             $image_repository = new ImageRepository;
 //dd($block->contents);
-            $contents = $block->contents->mapWithKeys(function ($content) {
-                return [$content->block_template_attribute_id => $content];
-            });
+
 //            dd($contents);
 
 
@@ -35,6 +33,10 @@ class ContentService
                 foreach ($data['content'] as $iso => $content) {
                     $language = Language::where('iso', $iso)->first();
                     foreach ($content as $block_template_attribute_id => $value) {
+                        $contents = $block->contents->mapWithKeys(function ($content) {
+                            return [$content->block_template_attribute_id => $content];
+                        });
+//                        dd($contents);
                         $block_template_attribute_model = BlockTemplateAttribute::find($block_template_attribute_id);
 
                         if ($block_template_attribute_model->type == 0) {
@@ -49,10 +51,8 @@ class ContentService
                             $value = end($path_ar);
                         }
 //dd($block_template_attribute_id, $contents);
-//                        dd($contents[$block_template_attribute_id]->mappedByLang());
 
                         if ($block_content = $contents[$block_template_attribute_id] ?? null) {
-
 
                             if(isset($block_content->mappedByLang()[$language->id])){
                                 $block_content->mappedByLang()[$language->id]->update([
@@ -64,6 +64,7 @@ class ContentService
                                     'lang_id' => Cache::get('languages')->get($iso),
                                 ]);
                             }
+//                            dd($block_content);
 //                            $block_content->translate
                         } else {
                             $block_content = $block->contents()->create([

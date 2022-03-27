@@ -6,6 +6,8 @@
         /** @var $language \App\Models\Language */
         $prop = $block->contents()->attribute($attribute->id)->first();
         $input_name = "content[{$language->iso}][{$attribute->id }]";
+        $value = $block->contents()->attribute($attribute->id)->first()->translations()->where('lang_id', $language->id)->first()->value ?? '';
+
 
     @endphp
     @switch($attribute->type)
@@ -59,7 +61,7 @@
                 class="form-control input"
                 placeholder="{{ $attribute->default_value }}"
                 autocomplete="off"
-                value="{{ $block->contents()->attribute($attribute->id)->first()->translate->value ?? '' }}"
+                value="{{ $value }}"
         >
         {{--                <div class="input-group-append">--}}
         {{--                    <a href="#" class="btn btn-danger remove-input"><i class="fas fa-trash"></i></a>--}}
@@ -79,7 +81,7 @@
                 placeholder="{{ $attribute->default_value }}"
                 name="{{ $input_name }}"
                 id="content_{{ $attribute->id }}"
-        >{{ $block->contents()->attribute($attribute->id)->first()->translate->value ?? '' }}</textarea>
+        >{{ $value }}</textarea>
         {{--                <div class="input-group-append">--}}
         {{--                    <a href="#" class="btn btn-danger remove-input"><i class="fas fa-trash"></i></a>--}}
         {{--                </div>--}}
@@ -94,7 +96,7 @@
                     class="editor"
                     id="content_{{ $u_id }}_{{ $attribute->id }}"
                     name="{{ $input_name }}"
-            >{!! $block->contents()->attribute($attribute->id)->first()->translate->value ?? '' !!}</textarea>
+            >{!! $value !!}</textarea>
         </div>
 
         {{--        <label for=""> {{ $attribute->name }} </label>--}}
@@ -154,7 +156,7 @@
                 class="form-control color"
                 placeholder="{{ $attribute->default_value }}"
                 autocomplete="off"
-                value="{{ $block->contents()->attribute($attribute->id)->first()->translate->value ?? '' }}"
+                value="{{ $value' }}"
         >
         @break
 
