@@ -66,7 +66,7 @@ class BlockContent extends Model
     /**
      * @return HasOne
      */
-    public function block (): HasOne
+    public function block(): HasOne
     {
         return $this
             ->hasOne(Block::class, 'id', 'block_id')
@@ -78,10 +78,10 @@ class BlockContent extends Model
     /**
      * @return HasMany
      */
-    public function translations (): HasMany
+    public function translations(): HasMany
     {
         return $this
-            ->hasMany(BlockContentTranslation::class,'block_content_id', 'id');
+            ->hasMany(BlockContentTranslation::class, 'block_content_id', 'id');
 //            ->with('options');
     }
 
@@ -93,18 +93,21 @@ class BlockContent extends Model
 
         return $this
             ->hasOne(BlockContentTranslation::class, 'block_content_id', 'id')
-            ->current();
+            ->current()
+            ;
     }
 
-    public function mappedByLang () {
+    public function mappedByLang()
+    {
         return $this
             ->translations
-            ->mapWithKeys(function($translation) {
+            ->mapWithKeys(function ($translation) {
                 return [$translation->lang_id => $translation];
             });
     }
 
-    public function scopeAttribute($query, $attr_id) {
+    public function scopeAttribute($query, $attr_id)
+    {
         return $query->where('block_template_attribute_id', $attr_id);
     }
 
@@ -113,11 +116,10 @@ class BlockContent extends Model
     /**
      * @return HasOne
      */
-    public function attr (): HasOne
+    public function attr(): HasOne
     {
         return $this
-            ->hasOne(BlockTemplateAttribute::class, 'id', 'block_template_attribute_id')
-//            ->with('contents')
+            ->hasOne(BlockTemplateAttribute::class, 'id', 'block_template_attribute_id')//            ->with('contents')
             ;
     }
 
@@ -126,7 +128,8 @@ class BlockContent extends Model
     /**
      * @return MorphOne
      */
-    public function iteration (): MorphOne {
+    public function iteration(): MorphOne
+    {
         return $this
             ->morphOne(BlockTemplateRepeaterIteration::class, 'contentable');
 //        return $this

@@ -6,6 +6,7 @@ use App\Models\Block;
 use App\Models\BlockContent;
 use App\Models\BlockTemplateAttribute;
 use App\Models\BlockTemplateRepeaterIteration;
+use App\Models\Language;
 use App\Repositories\ImageRepository;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
@@ -21,9 +22,9 @@ class ContentService
      */
     public function update(array $data, Block $block): Block
     {
-        try {
+//        try {
             $image_repository = new ImageRepository;
-
+//dd($block->contents);
             $contents = $block->contents->mapWithKeys(function ($content) {
                 return [$content->block_template_attribute_id => $content];
             });
@@ -31,6 +32,7 @@ class ContentService
 
             if (isset($data['content'])) {
                 foreach ($data['content'] as $iso => $content) {
+                    $language = Language::where('iso', $iso)->first();
                     foreach ($content as $block_template_attribute_id => $value) {
                         $block_template_attribute_model = BlockTemplateAttribute::find($block_template_attribute_id);
 
@@ -45,9 +47,10 @@ class ContentService
                             $path_ar = explode('/', $fileURL);
                             $value = end($path_ar);
                         }
+//dd($block_template_attribute_id, $contents);
+                        if ($block_content = $contents[$block_template_attribute_id] ?? null) {
 
-                        if ($block_content = $contents[$block_template_attribute_id]) {
-                            dd($block_content->translate);
+                            dd($block_content->mappedByLang()[$language->id]);
                             $block_content->translate->update([
                                 'value' => $value
                             ]);
@@ -194,11 +197,11 @@ class ContentService
             }
 
             return $block;
-        } catch (\Exception $exception) {
-            if(App::environment('local')) {
-                dd($exception->getMessage(), $data);
-            }
-        }
+//        } catch (\Exception $exception) {
+//            if(App::environment('local')) {
+//                dd($exception->getMessage(), $data);
+//            }
+//        }
 
     }
 }

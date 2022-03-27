@@ -27,6 +27,8 @@ class SetLocale
         $isLocale = Language::where([
             'iso' => $request->segment(1),
         ])->enabled()->exists();
+
+//        dd($request->segments());
 //
 //        App::setLocale();
 ////        dd($request->alias);
