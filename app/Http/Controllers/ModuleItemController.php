@@ -311,6 +311,7 @@ class ModuleItemController extends Controller
 
     public function item($alias)
     {
+//        dd($alias);
         if ($model = ModelSeo::where('alias', $alias)->first()) {
             $module_item = $model->seoable;
             $page = new Page;

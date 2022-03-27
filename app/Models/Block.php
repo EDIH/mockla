@@ -111,15 +111,20 @@ class Block extends Model
             ->with('translations')
             ->get()
             ->mapWithKeys(function ($content) {
+//                dd($content);
                 return [$content->block_template_attribute_id => $content];
             });
+//        dd($contents);
 
         return $this
             ->template
             ->attrs
             ->mapWithKeys(function ($attr) use ($contents) {
-//                dd();
-                $value = $contents[$attr->id]->mappedByLang()[Cache::get('languages')->get(App::getLocale())];
+//                dd($attr->id);
+//                dd($contents[$attr->id]->translations[0] ?? $attr);
+                $value = isset($contents[$attr->id])
+                    ? $contents[$attr->id]->mappedByLang()[Cache::get('languages')->get(App::getLocale())]
+                    : $attr;
 //                $value = $contents[$attr->id]->translations[0] ?? $attr;
 //                dd($contents);
 //                if(!$contents[$attr->id]) {

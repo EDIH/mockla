@@ -1,4 +1,10 @@
 <?php
+/**
+ * @var $block Block
+ */
+
+use App\Models\Block;
+
 $contents = $block->mappedByKey();
 //dd($contents);
 ?>
