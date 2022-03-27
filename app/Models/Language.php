@@ -55,7 +55,20 @@ class Language extends Model
         static::created(function () {
             Cache::flush('languages');
             Cache::rememberForever('languages', function () {
-                return Language::all()
+                return Language::where('enabled', true)
+                    ->get()
+                    ->map(function ($language) {
+                        return [$language->iso => $language->id];
+                    })
+                    ->collapse();
+            });
+        });
+
+        static::updated(function () {
+            Cache::flush('languages');
+            Cache::rememberForever('languages', function () {
+                return Language::where('enabled', true)
+                    ->get()
                     ->map(function ($language) {
                         return [$language->iso => $language->id];
                     })
