@@ -33,15 +33,16 @@
                 </li>
             </ul>
         </nav>
-        {{--        <div class="header__language">--}}
-        {{--            @foreach(\App\Models\Language::where('enabled', true)->get() as $language)--}}
-        {{--                <a href="{{ url('/'.$language->iso) }}">{{ $language->iso }}</a>--}}
-        {{--            @endforeach--}}
-        {{--        </div>--}}
+{{--            <div class="header__language">--}}
+{{--                @foreach(\App\Models\Language::where('enabled', true)->get() as $language)--}}
+{{--                    <a href="{{ url('/'.$language->iso) }}">{{ $language->iso }}</a>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
         <div class="header__login">
             <a class="orange-button" href="{{ url('/') . '/login' }}">Sign in</a>
         </div>
     </div>
 </header>
+{{-- TODO relocate--}}
 <main class="main" id="main">
     <article>

@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * App\Models\Page
@@ -229,6 +230,26 @@ class Page extends Model
     public function scopeMain(Builder $query): Builder
     {
         return $query->where('parent_page_id', null);
+    }
+
+    public function localizationLinks(): array
+    {
+//        TODO CACHE IT
+        $links = [];
+        $isoById = Cache::get('languages')->flip();
+
+        foreach($this->seos as $seo) {
+            $lang_id = $seo->lang_id;
+
+            if($isoById->get($lang_id) != App::getLocale()) {
+                $links[$isoById->get($lang_id)] = "/{$isoById->get($lang_id)}/{$seo->alias}";
+            } else {
+                $links[$isoById->get($lang_id)] = false;
+            }
+
+        }
+
+        return $links;
     }
 
 //    public function getPathAttribute() {
