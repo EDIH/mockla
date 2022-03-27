@@ -5,8 +5,7 @@ $contents = $block->mappedByKey();
     <div class="banner__container padding-left">
         <div class="banner__left">
             <h2 class="banner__title">
-{{--                {{ $contents['title']['value'] }}--}}
-                Make your way to the life you want!
+                {{ $contents['title']['value'] }}
             </h2>
             <h3 class="banner__subtitle">
 {{--                {{ $contents['subtitle']['value'] }}--}}
