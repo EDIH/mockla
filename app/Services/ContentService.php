@@ -28,6 +28,7 @@ class ContentService
             $contents = $block->contents->mapWithKeys(function ($content) {
                 return [$content->block_template_attribute_id => $content];
             });
+//            dd($contents);
 
 
             if (isset($data['content'])) {
@@ -48,12 +49,22 @@ class ContentService
                             $value = end($path_ar);
                         }
 //dd($block_template_attribute_id, $contents);
+//                        dd($contents[$block_template_attribute_id]->mappedByLang());
+
                         if ($block_content = $contents[$block_template_attribute_id] ?? null) {
 
-                            dd($block_content->mappedByLang()[$language->id]);
-                            $block_content->translate->update([
-                                'value' => $value
-                            ]);
+
+                            if(isset($block_content->mappedByLang()[$language->id])){
+                                $block_content->mappedByLang()[$language->id]->update([
+                                    'value' => $value
+                                ]);
+                            } else {
+                                $block_content->translations()->create([
+                                    'value' => $value,
+                                    'lang_id' => Cache::get('languages')->get($iso),
+                                ]);
+                            }
+//                            $block_content->translate
                         } else {
                             $block_content = $block->contents()->create([
                                 'block_template_attribute_id' => $block_template_attribute_id
