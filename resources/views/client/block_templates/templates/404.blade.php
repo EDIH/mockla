@@ -136,8 +136,9 @@
                 </div>
                 <div class="number">4</div>
             </div>
-            <div class="subtitle">УПС! Неверно указана страница</div>
-            <a class="button-404" href="<?php echo url('/');?>">На главную</a>
+            <div class="subtitle">Oops!
+                Wrong page specified</div>
+            <a class="button-404" href="<?php echo url('/');?>">Main page</a>
         </div>
     </div>
 
