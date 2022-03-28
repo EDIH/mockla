@@ -30,7 +30,10 @@ class LocaleLinksWidget implements ContractWidget
             $lang_id = $seo->lang_id;
 
             if($isoById->get($lang_id) != App::getLocale()) {
-                $links[$isoById->get($lang_id)] = "/{$isoById->get($lang_id)}/{$seo->alias}";
+                if($isoById->get($lang_id) == config('app.fallback_locale'))
+                    $links[$isoById->get($lang_id)] = "/{$seo->alias}";
+                else
+                    $links[$isoById->get($lang_id)] = "/{$isoById->get($lang_id)}/{$seo->alias}";
             } else {
                 $links[$isoById->get($lang_id)] = false;
             }

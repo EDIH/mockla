@@ -73,6 +73,7 @@ class PageController extends Controller
     public function show(): View
     {
         $page = $this->pageRepository->getByAlias(request()->alias ?? 'main');
+//        dd($page);
 
         if ($page->auth_only && !auth()->user()) {
             echo 403;
@@ -109,78 +110,12 @@ class PageController extends Controller
      */
     public function update(StorePageRequest $request, Page $page): RedirectResponse
     {
-        $data = $request->all();
 
         $this->pageRepository->update($page, [
             'page' => $request->except('additions', 'seo'),
             'additions' => request('additions'),
             'seo' => request('seo')
         ]);
-
-
-//        $page->update($data);
-//
-//        foreach ($data['additions'] as $lang => $addition) {
-//            if (
-//                $request->hasFile("additions.$lang.thumbnail")
-//                && $request->file("additions.$lang.thumbnail")->isValid()
-//            ) {
-//                $imageURL = request()->file("additions.$lang.thumbnail")->store('additions');
-//                $path_ar = explode('/', $imageURL);
-//                $addition['thumbnail'] = end($path_ar);
-//                Image::make(public_path('uploads/additions/') . $addition['thumbnail'])
-//                    ->resize(320, null, function ($constraint) {
-//                        $constraint->aspectRatio();
-//                    })
-//                    ->save(public_path('uploads/additions/') . '/thumbs/' . $addition['thumbnail']);
-//            }
-//
-//            if (isset($data['additions'][$lang])) {
-//                $lang_id = Language::where('iso', $lang)->first()->id;
-//
-//                $model_addition = $page->addition($lang_id);
-//                if ($model_addition) {
-//
-//                    $model_addition->update($addition);
-//                } else {
-//                    $addition['lang_id'] = $lang_id;
-//                    ModelAddition::create($addition);
-//                }
-//            }
-//        }
-////dd($data['seo']);
-//        foreach ($data['seo'] as $lang => $seo) {
-//            if (
-//                $request->hasFile("seo.$lang.thumbnail")
-//                && $request->file("seo.$lang.thumbnail")->isValid()
-//            ) {
-//                $imageURL = request()->file("seo.$lang.thumbnail")->store('seo');
-//                $path_ar = explode('/', $imageURL);
-//                $seo['thumbnail'] = end($path_ar);
-//                Image::make(public_path('uploads/seo/') . $seo['thumbnail'])
-//                    ->resize(320, null, function ($constraint) {
-//                        $constraint->aspectRatio();
-//                    })
-//                    ->save(public_path('uploads/seo/') . 'thumbs/' . $seo['thumbnail']);
-//
-////            Remove old images
-////                    Storage::delete('seo/'. $seo->thumbnail);
-////                    Storage::delete('seo/thumbs/'. $seo->thumbnail);
-//
-//            }
-//
-//            if (isset($data['seo'][$lang])) {
-//                $lang_id = Language::where('iso', $lang)->first()->id;
-//
-//                $model_seo = $page->seo($lang_id);
-////                    if($model_seo) {
-//                $model_seo->update($seo);
-////                    } else {
-////                        $seo['lang_id'] = $lang_id;
-////                        dd(Model_seo::create($seo));
-////                    }
-//            }
-//        }
 
         return redirect('admin/pages');
     }

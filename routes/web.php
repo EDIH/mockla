@@ -244,7 +244,7 @@ Route::group([
 //        });
 //    }
     Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show');
-}
-);
+});
+Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show');
 Route::get('/comment/create/{comment}', [CommentController::class, 'create'])->name('client.comment.create')->middleware('auth');
 Route::post('/comment/create', [CommentController::class, 'store'])->name('client.comment.store')->middleware('auth');
