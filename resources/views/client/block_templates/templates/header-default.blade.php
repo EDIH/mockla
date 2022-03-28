@@ -29,15 +29,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="header__language">
-            @foreach($page->localizationLinks() as $iso => $link)
-                @if($link)
-                    <a href="{{ url($link) }}">{{ $iso }}</a>
-                @else
-                    [<span class="active">{{ $iso }} </span>]
-                @endif
-            @endforeach
-        </div>
+        @widget('localeLinks', ['page' => $page])
         <div class="header__login">
             <a class="orange-button" href="{{ url('/') . '/login' }}">Sign in</a>
         </div>
