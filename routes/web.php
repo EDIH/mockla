@@ -44,6 +44,12 @@ Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout
 //    ->name('cabinet')
 //    ->middleware('auth');
 
+//Route::domain('{domain}')->group(function ($domain) {
+//    dd(request()->getHttpHost());
+//    Route::get('user/{id}', function ($domain, $id) {
+//
+//    });
+//});
 
 Auth::routes();
 /** Admin Panel */

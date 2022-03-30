@@ -6,7 +6,10 @@
         /** @var $language \App\Models\Language */
         $prop = $block->contents()->attribute($attribute->id)->first();
         $input_name = "content[{$language->iso}][{$attribute->id }]";
-        $value = $block->contents()->attribute($attribute->id)->first()->translations()->where('lang_id', $language->id)->first()->value ?? '';
+
+        $value = $prop
+        ? ($block->contents()->attribute($attribute->id)->first()->translations()->where('lang_id', $language->id)->first()->value ?? '')
+        : $attribute->default_value;
 
 
     @endphp
@@ -19,7 +22,7 @@
             /** @var $block \App\Models\Block */
             /** @var $attribute \App\Models\BlockTemplateAttribute */
             $url = $prop
-                ? '/uploads/contents/' .$block->contents()->attribute($attribute->id)->first()->translate->value ?? ''
+                ? '/uploads/contents/' . $value
                 : '/uploads/block_template_attributes/' . $attribute->default_value;
             $u_img_id = rand(10**4, 10**5);
         @endphp
@@ -94,7 +97,7 @@
             <label for=""> {{ $attribute->name }} </label>
             <textarea
                     class="editor"
-                    id="content_{{ $u_id }}_{{ $attribute->id }}"
+                    id="content_{{ $u_id }}_{{ $attribute->id }}_{{ $language->id }}"
                     name="{{ $input_name }}"
             >{!! $value !!}</textarea>
         </div>
@@ -156,7 +159,7 @@
                 class="form-control color"
                 placeholder="{{ $attribute->default_value }}"
                 autocomplete="off"
-                value="{{ $value' }}"
+                value="{{ $value }}"
         >
         @break
 
