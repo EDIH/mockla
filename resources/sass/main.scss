@@ -4,7 +4,15 @@
 @import "_variables.scss";
 @import "selectric";
 @import "aos.scss";
-
+$desktop-wide: 1921px;
+$desktop: 1920px;
+$laptop: 1440px;
+$laptop-midle: 1400px;
+$laptop-small: 1200px;
+$tablet-wide: 1024px;
+$tablet-tort: 768px;
+$phone-wide: 500px;
+$phote-port: 400px;
 $transition: 0.3s;
 
 
@@ -92,6 +100,9 @@ a{
 html{
   font-size: 10px;
   line-height: 122%;
+  @media all and (max-width: $laptop-midle){
+    font-size: 8px;
+  }
 }
 body{
   position: relative;
@@ -113,8 +124,20 @@ body{
 .section-title{
   font-weight: 700;
   font-size: 4rem;
-  line-height: 4.2rem;
+  line-height: 110%;
   color: #0D0E17;
+  @media all and (max-width: $laptop-midle){
+    font-size: 35px;
+  }
+  @media all and (max-width: $laptop-small){
+    font-size: 30px;
+  }
+  @media all and (max-width: $tablet-wide){
+    font-size: 25px;
+  }
+  @media all and (max-width: $phone-wide){
+    font-size: 20px;
+  }
 }
 .section-unsubtitle{
   font-weight: 700;
@@ -128,31 +151,45 @@ body{
   line-height: 3rem;
   color: #0D0E17;
 }
-.button{
-  display: inline-block;
-  background: linear-gradient(88.72deg, #6E2AFF 1.13%, #50ABFF 234.23%);
-  border-radius: 10vw * $px;
-  padding: 2vw * $px 5vw * $px;
-  font-weight: 500;
-  font-size: 16vw * $px;
-  line-height: 101.4%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-}
 body{
   background-color: white;
 }
 .main-container{
-  max-width: 1920vw * $px;
+  max-width: 1920px;
+  width: 100%;
   margin: auto;
   @extend .padding-right;
   @extend .padding-left;
 }
 .padding-right{
   padding-right: 12rem;
+  @media all and (max-width: $laptop-small){
+    padding-right: 75px;
+  }
+  @media all and (max-width: $tablet-wide){
+    padding-right: 50px;
+  }
+  @media all and (max-width: $tablet-tort){
+    padding-right: 25px;
+  }
+  @media all and (max-width: $phote-port){
+    padding-right: 10px;
+  }
 }
 .padding-left{
   padding-left: 12rem;
+  @media all and (max-width: $laptop-small){
+    padding-left: 75px;
+  }
+  @media all and (max-width: $tablet-wide){
+    padding-left: 50px;
+  }
+  @media all and (max-width: $tablet-tort){
+    padding-left: 25px;
+  }
+  @media all and (max-width: $phote-port){
+    padding-left: 10px;
+  }
 }
 .orange-button{
   padding: 2.7rem 7.2rem 2.6rem 7.2rem;
@@ -166,6 +203,9 @@ body{
   color: #FFFFFF;
   align-items: center;
   border: none;
+  @media all and (max-width: $laptop-midle){
+    padding: 14px 50px 13px 50px;
+  }
   svg{
     margin-left: 3.2rem;
   }
@@ -197,6 +237,19 @@ body{
   line-height: 2.7rem;
   background-color: #7F4BDC;
   align-items: center;
+  @media all and (max-width: $laptop-midle){
+    font-size: 90%;
+  }
+  @media all and (max-width: $laptop-small){
+    font-size: 85%;
+  }
+  @media all and (max-width: $tablet-wide){
+    font-size: 80%;
+  }
+  @media all and (max-width: $phone-wide){
+    font-size: 20px;
+    padding: 23px 40px 24px 40px;
+  }
   svg{
     margin-left: 3.2rem;
   }
@@ -219,6 +272,10 @@ body{
 .header{
   padding-top: 4.8rem;
   padding-bottom: 5.6rem;
+  @media all and (max-width: $phone-wide){
+    padding-top: 34px;
+    padding-bottom: 51px;
+  }
   &-hot{
     .header__nav-item{
       margin-right: 4.4rem;
@@ -258,6 +315,9 @@ body{
       display: flex;
       align-items: center;
       margin-bottom: 0;
+      @media all and (max-width: $tablet-wide){
+        display: none;
+      }
     }
     &-item{
       margin-right: 7.4rem;
@@ -265,6 +325,9 @@ body{
       padding-left: 0;
       &:last-child{
         margin-right: 10.3rem;
+        @media all and (max-width: $laptop){
+          margin-right: 4rem;
+        }
       }
       &.has-child{
         position: relative;
@@ -279,6 +342,9 @@ body{
             border-bottom: 2px solid black;
             border-right: 2px solid black;
             transform: rotate(45deg);
+            @media all and (max-width: $laptop){
+              top: 4px;
+            }
         }
         ul{
           display: none;
@@ -298,20 +364,66 @@ body{
     }
   }
   &__login{
+    @media all and (max-width: $tablet-wide){
+      display: none;
+    }
+  }
+  &__burger{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    span{
+      width: 69px;
+      height: 3px;
+      margin: 4px 0;
+      display: block;
+      background-color: #000000;
 
+    }
+    @media all and (max-width: $tablet-wide){
+      display: flex;
+    }
   }
 }
 .banner{
+  &.main-container{
+    @media all and (max-width: $desktop){
+      padding: 0;
+    }
+    @media all and (min-width: $desktop-wide){
+      padding-right: 120px;
+    }
+  }
   &__container{
     display: flex;
     flex-wrap: wrap;
+    @media all and (min-width: $desktop-wide){
+      padding-left: 0;
+    }
+    &.padding-right{
+      @media all and (min-width: 1025px){
+        padding-right: 0;
+      }
+    }
   }
   &__title{
     font-weight: 700;
     font-size: 5rem;
-    line-height: 5rem;
+    line-height: 100%;
     color: #0D0E17;
     margin-bottom: 3.2rem;
+    @media all and (max-width: $laptop-midle){
+      font-size: 45px;
+    }
+    @media all and (max-width: $laptop-small){
+      font-size: 40px;
+    }
+    @media all and (max-width: $tablet-wide){
+      font-size: 35px;
+    }
+    @media all and (max-width: $phone-wide){
+      font-size: 30px;
+    }
   }
   &__subtitle{
     font-weight: 600;
@@ -319,18 +431,47 @@ body{
     line-height: 3rem;
     color: #0D0E17;
     margin-bottom: 3.6rem;
+    @media all and (max-width: $tablet-wide){
+      font-size: 16px;
+    }
   }
   &__left{
     width: calc(50% - 60px);
     padding: 10.3rem 15rem 10.3rem 10.3rem;
     border: 4px solid #0D0E17;
     border-radius: 50px;
+    @media all and (max-width: $laptop-midle){
+      padding: 60px;
+    }
+    @media all and (max-width: $laptop-small){
+      padding: 50px;
+    }
+    @media all and (max-width: $tablet-wide){
+      padding: 40px;
+      width: 100%;
+    }
+    @media all and (max-width: $phone-wide){
+      padding: 30px;
+    }
+    .pink-button{
+      @media all and (max-width: 440px){
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
   &__right{
     width: calc(50% + 60px);
     border-radius: 50px 0 0 50px;
     overflow: hidden;
     position: relative;
+    @media all and (min-width: $desktop-wide){
+      border-radius: 50px 50px 50px 50px;
+    }
+    @media all and (max-width: $tablet-wide){
+      display: none;
+    }
     img{
       position: absolute;
       top: 50%;
@@ -345,6 +486,9 @@ body{
 .critic{
   margin-top: 12rem;
   margin-bottom: 13.8rem;
+  @media all and (max-width: $tablet-wide){
+    margin-top: 51px;
+  }
   &__container{
     display: flex;
     flex-wrap: wrap;
@@ -355,6 +499,11 @@ body{
     align-items: flex-start;
     position: relative;
     width: calc(50% - 104px);
+    @media all and (max-width: $tablet-wide){
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
+    }
     img{
       border-radius: 50%;
       width: 100%;
@@ -369,19 +518,56 @@ body{
       height: 7.4rem;
       background-color: #ED6A32;
       border-radius: 50%;
+      @media all and (max-width: $phone-wide){
+        width: 46px;
+        height: 46px;
+      }
     }
   }
   &__about{
     width: 50%;
     padding-top: 5rem;
+    @media all and (max-width: $tablet-wide){
+      width: 100%;
+      padding-top: 60px;
+    }
   }
   &__title{
     margin-bottom: 4.8rem;
+    @media all and (max-width: $tablet-tort){
+      margin-bottom: 94px;
+    }
+    @media all and (max-width: $phone-wide){
+      max-width: 270px;
+      br{
+        display: none;
+      }
+    }
+  }
+  .section-subtitle{
+    @media all and (max-width: $tablet-wide){
+      font-size: 18px;
+      line-height: 30px;
+      font-weight: 500;
+    }
+  }
+  .section-unsubtitle{
+    @media all and (max-width: $tablet-wide){
+      font-size: 18px;
+      line-height: 30px;
+      font-weight: 700;
+    }
   }
   &__desc{
     padding-left: 10.2rem;
     position: relative;
     margin-bottom: 4.8rem;
+    @media all and (max-width: $tablet-wide){
+      padding-left: 50px;
+    }
+    @media all and (max-width: $tablet-tort){
+      margin-bottom: 0;
+    }
     svg{
       position: absolute;
       top: 6px;
@@ -401,6 +587,22 @@ body{
     width: calc(100% + 10.2rem);
     max-width: 472px;
     margin-top: 5rem;
+    @media all and (max-width: $tablet-wide){
+      margin-left: -50px;
+    }
+    @media all and (max-width: $tablet-tort){
+      margin-left: -40px;
+    }
+    @media all and (max-width: $phone-wide){
+      margin-top: 32px;
+      width: calc(100% + 50px);
+      margin-left: -50px;
+      padding: 24px 20px 24px 48px ;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 0px 40px 40px 40px;
+    }
   }
   &__list{
     width: 100%;
@@ -408,29 +610,67 @@ body{
     display: flex;
     flex-wrap: wrap;
     padding-left: 12rem;
+    @media all and (max-width: $tablet-wide){
+      padding-left: 0;
+    }
+    @media all and (max-width: $tablet-tort){
+      margin-top: 70px;
+    }
   }
   &__item{
     width: calc(25% - 3rem);
     padding-right: 5.2rem;
+    @media all and (max-width: $tablet-tort){
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      padding-right: 0;
+    }
+    @media all and (max-width: $phone-wide){
+      margin-bottom: 40px;
+    }
     &:last-child{
       width: 50%;
       padding-right: 0;
       max-width: 520px;
+      @media all and (max-width: $tablet-tort){
+        width: 100%;
+      }
     }
   }
   &__icon{
     margin-bottom: 2.9rem;
+    @media all and (max-width: $tablet-tort){
+      margin-bottom: 0;
+      margin-right: 20px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   &__description{
     font-weight: 700;
     font-size: 2rem;
     line-height: 2.7rem;
     color: #0D0E17;
+    @media all and (max-width: $tablet-tort){
+      padding-top: 10px;
+      width: calc(100% - 68px);
+    }
+    @media all and (max-width: $phone-wide){
+      padding-top: 4px;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 32px;
+    }
   }
 }
 .familar{
-  margin-top: 13.8rem;
-  margin-bottom: 12.8rem;
+  max-width: 1920px;
+  margin: 13.8rem auto 12.8rem auto;
   &__container{
     display: flex;
     flex-wrap: wrap;
@@ -445,6 +685,9 @@ body{
       left: 0;
       height: 100%;
       width: 12rem;
+      @media all and (min-width: $desktop-wide){
+        display: none;
+      }
     }
   }
   &__text{
@@ -560,6 +803,9 @@ body{
     border-radius: 0 50px 50px 0;
     overflow: hidden;
     position: relative;
+    @media all and (min-width: $desktop-wide){
+      border-radius: 50px 50px 50px 50px;
+    }
     img{
       position: absolute;
       top: 50%;

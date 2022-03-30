@@ -1,4 +1,4 @@
-<section class="steps">
+<section class="steps main-container">
     <div class="steps__container padding-right">
         <div class="steps__image">
             <img src="{{ url('/') }}/img/templates/steps/img.jpg">

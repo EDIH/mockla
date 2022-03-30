@@ -33,6 +33,11 @@
         <div class="header__login">
             <a class="orange-button" href="{{ url('/') . '/login' }}">Sign in</a>
         </div>
+        <div class="header__burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 </header>
 {{-- TODO relocate--}}
