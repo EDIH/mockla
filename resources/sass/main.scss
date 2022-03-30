@@ -248,6 +248,7 @@ body{
   }
   @media all and (max-width: $phone-wide){
     font-size: 20px;
+    padding: 23px 40px 24px 40px;
   }
   svg{
     margin-left: 3.2rem;
@@ -455,6 +456,8 @@ body{
     .pink-button{
       @media all and (max-width: 440px){
         width: 100%;
+        display: flex;
+        justify-content: center;
       }
     }
   }
