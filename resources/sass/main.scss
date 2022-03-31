@@ -281,6 +281,42 @@ body{
     padding-top: 34px;
     padding-bottom: 51px;
   }
+  &__language{
+    position: relative;
+    span, a{
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 2rem;
+      color: #0D0E17;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    &-current{
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      svg{
+        margin-left: 4px;
+      }
+    }
+    &-else{
+      position: absolute;
+      top: 100%;
+      left: -2rem;
+      padding: 2rem;
+      border: 1px solid black;
+      z-index: 2;
+      background-color: #ffffff;
+      border-radius: 10px;
+      a{
+        margin: 0 0 10px 0!important;
+        display: block;
+        &:last-child{
+          margin-bottom: 0!important;
+        }
+      }
+    }
+  }
   &-hot{
     .header__nav-item{
       margin-right: 4.4rem;
@@ -435,7 +471,6 @@ body{
     font-size: 2.2rem;
     line-height: 3rem;
     color: #0D0E17;
-    margin-bottom: 3.6rem;
     @media all and (max-width: $tablet-wide){
       font-size: 16px;
     }
@@ -459,6 +494,7 @@ body{
       padding: 30px;
     }
     .pink-button{
+      margin-top: 3.6rem;
       @media all and (max-width: 440px){
         width: 100%;
         display: flex;
@@ -857,7 +893,7 @@ body{
   margin-bottom: 13.8rem;
   @media all and (max-width: $phone-wide){
     margin-top: 80px;
-    margin-bottom: 96px;
+    margin-bottom: 56px;
   }
   &.main-container{
     @media all and (max-width: $laptop-small){
@@ -932,6 +968,10 @@ body{
 .steps{
   margin-top: 13.8rem;
   margin-bottom: 13.8rem;
+  @media all and (max-width: $phone-wide){
+    margin-top: 56px;
+    margin-bottom: 130px;
+  }
   &.main-container{
     @media all and (max-width: $desktop-wide){
       padding: 0;
@@ -940,6 +980,16 @@ body{
   &__container{
     display: flex;
     flex-wrap: wrap;
+    &.padding-right{
+      @media all and (min-width: $desktop-wide){
+        padding-right: 0;
+      }
+    }
+    &.padding-left{
+      @media all and (min-width: $tablet-wide){
+        padding-left: 0;
+      }
+    }
   }
   &__image{
     width: calc(50% + 6rem);
@@ -949,6 +999,10 @@ body{
     @media all and (min-width: $desktop-wide){
       border-radius: 50px 50px 50px 50px;
     }
+    @media all and (max-width: $tablet-wide){
+      width: 100%;
+      border-radius: 30px;
+    }
     img{
       position: absolute;
       top: 50%;
@@ -957,6 +1011,13 @@ body{
       width: 100%;
       height: 100%;
       object-fit: cover;
+      @media all and (max-width: $tablet-wide){
+       position: static;
+        height: auto;
+        transform: none;
+        top: 0;
+        left: 0;
+      }
     }
   }
   &__form{
@@ -964,20 +1025,40 @@ body{
     padding: 8rem 10.4rem;
     border-radius: 50px;
     background-color: #7F4BDC;
+    @media all and (max-width: $tablet-wide){
+      width: 100%;
+    }
+    @media all and (max-width: $phone-wide){
+      padding: 50px 21px;
+      border-radius: 30px;
+    }
   }
   &__title{
     color: white;
     margin-bottom: 4.8rem;
+    @media all and (max-width: $phone-wide){
+      max-width: 475px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      margin-bottom: 38px;
+    }
   }
   &__subtitle{
     color: white;
     margin-bottom: 1.6rem;
+    @media all and (max-width: $phone-wide){
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 30px;
+      margin-bottom: 16px;
+    }
     &.section-subtitle{
       font-weight: 700;
     }
   }
   &__label{
-    margin-bottom: 5.4rem;
+    margin-bottom: 54px;
     display: block;
     &-big{
       .section-subtitle{
@@ -1003,11 +1084,26 @@ body{
     display: flex;
     justify-content: center;
     width: 100%;
+    @media all and (max-width: $phone-wide){
+      padding: 17px 20px 18px 20px;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 25px;
+      margin-top: 76px;
+      border-radius: 20px;
+    }
   }
 }
 .education{
   margin-bottom: 12.8rem;
   margin-top: 13.8rem;
+  @media all and (max-width: $phone-wide){
+    margin-top: 130px;
+    margin-bottom: 104px;
+    &.main-container{
+      padding: 0;
+    }
+  }
   &__container{
     display: flex;
     flex-wrap: wrap;
@@ -1015,6 +1111,11 @@ body{
   &__image{
     padding-right: 5.7rem;
     width: 50%;
+    @media all and (max-width: $tablet-wide){
+      width: 100%;
+      text-align: center;
+      padding-right: 0;
+    }
     img{
       width: 100%;
       height: auto;
@@ -1022,6 +1123,10 @@ body{
   }
   &__text{
     width: 50%;
+    @media all and (max-width: $tablet-wide){
+      width: 100%;
+      margin-top: 50px;
+    }
   }
   &__title{
     font-weight: 300;
@@ -1030,21 +1135,49 @@ body{
     color: #0D0E17;
     max-width: 370px;
     margin-bottom: 1.9rem;
+    @media all and (max-width: $phone-wide){
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 39px;
+    }
   }
   &__subtitle{
     margin-bottom: 4rem;
+    @media all and (max-width: $phone-wide){
+      margin-bottom: 20px;
+    }
+  }
+  &__lnk{
+    @media all and (max-width: $phone-wide){
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      border-radius: 20px;
+    }
   }
 }
 .action{
   margin-top: 12.8rem;
   background-color: #F4F4F4;
   margin-bottom: 15rem;
+  @media all and (max-width: $tablet-tort){
+    padding-top: 92px;
+  }
+  @media all and (max-width: $phone-wide){
+    &.main-container{
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
   &__container{
 
   }
   &__wrapper{
     display: flex;
     justify-content: space-between;
+    @media all and (max-width: $tablet-tort){
+      flex-wrap: wrap;
+    }
   }
   &__text{
     width: 50%;
@@ -1054,6 +1187,10 @@ body{
     align-items: flex-start;
     max-width: 420px;
     position: relative;
+    @media all and (max-width: $tablet-tort){
+      width: 100%;
+    }
+
     > svg{
       position: absolute;
       left: -88px;
@@ -1063,6 +1200,26 @@ body{
   &__image{
     padding-top: 5.2rem;
     width: 50%;
+    @media all and (max-width: $tablet-tort){
+      width: 100%;
+      text-align: center;
+    }
+    @media all and (max-width: $phone-wide){
+      text-align: right;
+      width: calc(100% + 100px);
+      margin-left: -50px;
+      margin-right: -50px;
+      max-width: none;
+      img{
+        max-width: none;
+        width: 100%;
+      }
+    }
+    @media all and (max-width: $phote-port){
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      margin-right: -20px;
+    }
   }
   &__title{
     font-weight: 700;
@@ -1070,6 +1227,14 @@ body{
     line-height: 5rem;
     color: #0D0E17;
     margin-bottom: 10rem;
+    @media all and (max-width: $tablet-tort){
+      margin-bottom: 68px;
+    }
+    @media all and (max-width: $phone-wide){
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 30px;
+    }
   }
 }
 .offer{
@@ -1171,6 +1336,11 @@ body{
 .follow{
   margin-top: 14.2rem;
   margin-bottom: 12rem;
+  @media all and (max-width: $phone-wide){
+    &.main-container{
+      padding: 0;
+    }
+  }
   &__container{
 
   }
@@ -1182,9 +1352,28 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    @media all and (max-width: $phone-wide){
+      margin-top: 44px;
+    }
+    @media all and (max-width: $phote-port){
+      justify-content: space-between;
+    }
   }
   &__lnk{
     margin: 0 4rem;
+    @media all and (max-width: $tablet-tort){
+      margin: 0 11px;
+      &:first-child{
+        margin-left: 0;
+      }
+      &:last-child{
+        margin-right: 0;
+      }
+      img{
+        width: 39px;
+        height: 39px;
+      }
+    }
   }
   &__elem{
     margin-top: 12.8rem;
@@ -1193,10 +1382,26 @@ body{
     justify-content: space-between;
     border: 4px solid #24C4D5;
     border-radius: 50px;
+    @media all and (max-width: $tablet-wide){
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+    }
+    @media all and (max-width: $phone-wide){
+      margin-top: 68px;
+      padding: 40px 30px 51px 30px;
+    }
+    @media all and (max-width: $phote-port){
+      padding: 40px 20px 51px 20px;
+    }
     &-icon{
       width: 25.4rem;
       height: 25.4rem;
       margin-right: 8.8rem;
+      @media all and (max-width: $tablet-wide){
+        margin-right: 0;
+        margin-bottom: 36px;
+      }
       svg{
         width: 100%;
         height: auto;
@@ -1204,13 +1409,28 @@ body{
     }
     &-cont{
       flex: 1;
+      @media all and (max-width: $tablet-wide){
+        text-align: center;
+      }
     }
     &-title{
-
+      @media all and (max-width: $tablet-wide){
+        font-size: 30px;
+        margin-bottom: 37px;
+      }
+    }
+    &-desc{
+      @media all and (max-width: $phone-wide){
+        font-size: 18px;
+        line-height: 31px;
+      }
     }
     &-decoration{
       margin: 3.2rem -4rem 1rem auto;
       text-align: right;
+      @media all and (max-width: $tablet-wide){
+        display: none;
+      }
     }
   }
 }

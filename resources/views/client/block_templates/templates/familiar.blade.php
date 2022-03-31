@@ -116,9 +116,8 @@
             <picture>
                 <source srcset="{{ url('/') }}/img/templates/familiar/pers-desk.jpg" media="(min-width: 1024px)">
                 <source srcset="{{ url('/') }}/img/templates/familiar/pers-tablet.jpg" media="(min-width: 768px)">
-                <img src="{{ url('/') }}/img/templates/familiar/pers-mob.jpg">
+                <img src="{{ url('/') }}/img/templates/familiar/pers-mob.jpg" alt="">
             </picture>
-
         </div>
     </div>
 </section>

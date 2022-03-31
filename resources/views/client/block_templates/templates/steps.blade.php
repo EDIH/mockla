@@ -1,7 +1,11 @@
 <section class="steps main-container">
-    <div class="steps__container padding-right">
+    <div class="steps__container padding-right padding-left">
         <div class="steps__image">
-            <img src="{{ url('/') }}/img/templates/steps/img.jpg">
+            <picture>
+                <source srcset="{{ url('/') }}/img/templates/steps/img-desktop.jpg" media="(min-width: 1024px)">
+                <source srcset="{{ url('/') }}/img/templates/steps/img-tablet.jpg" media="(min-width: 768px)">
+                <img src="{{ url('/') }}/img/templates/steps/img-mob.jpg" alt="">
+            </picture>
         </div>
         <div class="steps__form">
             <form action="" method="post">
