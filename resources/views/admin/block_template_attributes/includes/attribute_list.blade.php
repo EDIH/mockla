@@ -319,7 +319,6 @@
                 </div>
             </div>
             <script>
-                {{--                var selector_{{ $attribute->id }} = {!! json_encode($attribute->setting->properties)  !!}--}}
                 var selector_{{ $attribute->id }} = {!! $attribute->setting->properties !!}
             </script>
             @break

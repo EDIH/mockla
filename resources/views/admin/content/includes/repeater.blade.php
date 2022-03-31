@@ -170,7 +170,7 @@
                         @case(7)
                         @php
                             /** @var $attribute \App\Models\BlockTemplateAttribute */
-                            $properties = $attribute['setting']->properties;
+                            $properties = $attribute->setting->decodedProperties;
                         @endphp
                         <label for=""> {{ $attribute->name }} </label>
                         <select

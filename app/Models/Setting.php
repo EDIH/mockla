@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * App\Models\Setting
  *
  * @property int $id
- * @property array $properties
+ * @property string $properties
  * @property int|null $customizable_id
  * @property string|null $customizable_type
  * @property int|null $admin_created_id
@@ -44,7 +44,8 @@ class Setting extends Model
         'properties'
     ];
 
-    protected $casts = [
-        'properties' => 'array',
-    ];
+    public function getDecodedPropertiesAttribute()
+    {
+        return json_decode($this->properties, true);
+    }
 }
