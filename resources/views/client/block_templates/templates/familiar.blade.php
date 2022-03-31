@@ -112,8 +112,13 @@
                 </div>
             </div>
         </div>
-        <div class="familar__image">
-            <img src="{{ url('/') }}/img/templates/familiar/pers-desk.jpg">
+        <div class="familar__image padding-right">
+            <picture>
+                <source srcset="{{ url('/') }}/img/templates/familiar/pers-desk.jpg" media="(min-width: 1024px)">
+                <source srcset="{{ url('/') }}/img/templates/familiar/pers-tablet.jpg" media="(min-width: 768px)">
+                <img src="{{ url('/') }}/img/templates/familiar/pers-mob.jpg">
+            </picture>
+
         </div>
     </div>
 </section>

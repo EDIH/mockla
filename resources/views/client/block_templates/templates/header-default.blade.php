@@ -1,3 +1,6 @@
+<?php
+$contents = $block->mappedByKey();
+?>
 <header id="header" class="header">
     <div class="header__container main-container">
         <div class="header__logo">
@@ -31,7 +34,7 @@
         </nav>
         @widget('localeLinks', ['page' => $page])
         <div class="header__login">
-            <a class="orange-button" href="{{ url('/') . '/login' }}">Sign in</a>
+            <a class="orange-button" href="{{ $contents['button-lnk']['value'] }}">{{ $contents['button-title']['value'] }}</a>
         </div>
         <div class="header__burger">
             <span></span>

@@ -44,7 +44,7 @@ $contents = $block->mappedByKey();
             </div>
             <div class="critic__item">
                 <div class="critic__icon">
-                    <img src="{{url('/'). '/img/templates/critic/icon2.svg'}}" alt="{{ $contents['third']['value'] }}">
+                    <img src="{{url('/'). '/img/templates/critic/icon3.svg'}}" alt="{{ $contents['third']['value'] }}">
                 </div>
                 <h3 class="critic__description">
                     {{ $contents['third']['value'] }}

@@ -150,6 +150,11 @@ body{
   font-size: 1.8rem;
   line-height: 3rem;
   color: #0D0E17;
+  @media all and (max-width: $phone-wide){
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 body{
   background-color: white;
@@ -486,6 +491,9 @@ body{
 .critic{
   margin-top: 12rem;
   margin-bottom: 13.8rem;
+  @media all and (max-width: $phone-wide){
+    margin-bottom: 40px;
+  }
   @media all and (max-width: $tablet-wide){
     margin-top: 51px;
   }
@@ -671,10 +679,19 @@ body{
 .familar{
   max-width: 1920px;
   margin: 13.8rem auto 12.8rem auto;
+  @media all and (max-width: $phone-wide){
+    margin-top: 40px;
+    margin-bottom: 80px;
+  }
   &__container{
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    &.main-container{
+      @media all and (max-width: $tablet-wide){
+        padding: 0;
+      }
+    }
     &:before{
       content: "";
       background-color: #7F4BDC;
@@ -688,17 +705,56 @@ body{
       @media all and (min-width: $desktop-wide){
         display: none;
       }
+      @media all and (max-width: $tablet-wide){
+        display: none;
+      }
     }
   }
   &__text{
     padding: 0 12rem;
     width: 50%;
+    @media all and (max-width: $laptop-small){
+      padding-right: 50px;
+    }
+    @media all and (max-width: $tablet-wide){
+      width: 100%;
+      position: relative;
+    }
+    @media all and (max-width: $phone-wide){
+      padding-left: 50px;
+      padding-right: 25px;
+    }
+    &:before{
+      position: absolute;
+      content: "";
+      background-color: #7F4BDC;
+      border-radius: 0 50px 50px 0;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50px;
+      display: none;
+      @media all and (max-width: $tablet-wide){
+        display: block;
+      }
+      @media all and (max-width: $phone-wide){
+        width: 25px;
+      }
+    }
   }
   &__image{
     width: 50%;
     border-radius: 0 50px 50px 0;
     position: relative;
     overflow: hidden;
+    @media all and (min-width: 1025px){
+      padding-right: 0;
+    }
+    @media all and (max-width: $tablet-wide){
+      width: 100%;
+      margin-top: 40px;
+    }
     img{
       position: absolute;
       top: 50%;
@@ -707,10 +763,21 @@ body{
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top;
+      @media all and (max-width: $tablet-wide){
+        position: static;
+        transform: none;
+        top: 0;
+        left: 0;
+        border-radius: 0 50px 50px 0;
+      }
     }
   }
   &__title{
     margin-bottom: 4rem;
+    @media all and (max-width: $phone-wide){
+      padding-top: 30px;
+    }
   }
   &__list{
     margin-top: 5rem;
@@ -718,11 +785,20 @@ body{
   &__item{
     display: flex;
     margin-bottom: 3.2rem;
+    @media all and (max-width: $phone-wide){
+      &:last-child{
+        margin-bottom: 90px;
+      }
+    }
   }
   &__icon{
     width: 64px;
     height: 64px;
     margin-right: 3.2rem;
+    @media all and (max-width: $phone-wide){
+      width: 44px;
+      height: 44px;
+    }
     img {
       width: 100%;
       height: auto;
@@ -730,12 +806,20 @@ body{
   }
   &__cont{
     width: calc(100% - 96px);
+    @media all and (max-width: $phone-wide){
+      width: calc(100% - 64px);
+    }
   }
   &__name{
     font-weight: 700;
     font-size: 2rem;
     line-height: 2.7rem;
     color: #0D0E17;
+    @media all and (max-width: $phone-wide){
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 30px;
+    }
   }
   &__desc{
     font-weight: 300;
@@ -743,6 +827,11 @@ body{
     line-height: 3rem;
     color: #0D0E17;
     margin-bottom: 4px;
+    @media all and (max-width: $phone-wide){
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 30px;
+    }
   }
   &__lnk{
     font-weight: 700;
@@ -752,6 +841,12 @@ body{
     color: #ED6A32;
     display: flex;
     align-items: center;
+    @media all and (max-width: $phone-wide){
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 30px;
+      margin-top: 10px;
+    }
     svg{
       margin-left: 15px;
     }
@@ -760,6 +855,15 @@ body{
 .ecosystem{
   margin-top: 12.8rem;
   margin-bottom: 13.8rem;
+  @media all and (max-width: $phone-wide){
+    margin-top: 80px;
+    margin-bottom: 96px;
+  }
+  &.main-container{
+    @media all and (max-width: $laptop-small){
+      padding: 0;
+    }
+  }
   &__container{
 
   }
@@ -771,9 +875,25 @@ body{
   }
   &__item{
     width: calc(25% - 2.7rem);
+    @media all and (max-width: $tablet-wide){
+      width: calc(50% - 3rem);
+      margin-bottom: 40px;
+    }
+    @media all and (max-width: $phone-wide){
+      width: 100%;
+      padding-left: 86px;
+      position: relative;
+    }
   }
   &__icon{
     margin-bottom: 3.2rem;
+    @media all and (max-width: $phone-wide){
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
   &__name{
     font-weight: 700;
@@ -782,6 +902,19 @@ body{
     color: #0D0E17;
     margin-bottom: 1.8rem;
     min-height: 9rem;
+    @media all and (max-width: $tablet-wide){
+      min-height: auto;
+      margin-bottom: 14px;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 25px;
+      br{
+        display: none;
+      }
+    }
+    @media all and (max-width: $phone-wide){
+
+    }
   }
   &__desc{
     margin: 0;
@@ -789,11 +922,21 @@ body{
     font-size: 1.8rem;
     line-height: 3rem;
     color: #0D0E17;
+    @media all and (max-width: $phone-wide){
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
 }
 .steps{
   margin-top: 13.8rem;
   margin-bottom: 13.8rem;
+  &.main-container{
+    @media all and (max-width: $desktop-wide){
+      padding: 0;
+    }
+  }
   &__container{
     display: flex;
     flex-wrap: wrap;

@@ -14,7 +14,7 @@ $contents = $block->mappedByKey();
                 {{ $contents['title']['value'] }}
             </h2>
             <h3 class="banner__subtitle">
-                {{ $contents['subtitle']['value'] }}
+                {!!  $contents['subtitle']['value']  !!}
             </h3>
             <a href="#" class="pink-button">
                 {{ $contents['button-name']['value'] }}
