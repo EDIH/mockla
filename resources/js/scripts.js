@@ -18,6 +18,13 @@ $(document ).ready(function() {
         });
     }
 
+    if($('.footer').length && $(window).width() <= '768'){
+        $(".footer__menu-name").click(function() {
+            $(this).next('.footer__navigate-nav').find('.footer__navigate-list').fadeToggle(300);
+            $(this).toggleClass('active');
+        });
+    }
+
     if($('.tabs-elements').length){
         $(".tabs-elements .tabs-nav-item").click(function() {
             $(".tabs-elements .tabs-nav-item").removeClass("active").eq($(this).index()).addClass("active");

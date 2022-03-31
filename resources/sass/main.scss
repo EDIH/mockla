@@ -1437,15 +1437,41 @@ body{
 .footer{
   padding-bottom: 4rem;
   padding-top: 6.4rem;
+  @media all and (max-width: 960px){
+    padding-bottom: 36px;
+  }
   &__container{
     display: flex;
     flex-wrap: wrap;
+    @media all and (max-width: 960px){
+      flex-direction: column-reverse;
+    }
+  }
+  &__logo{
+    @media all and (max-width: 960px){
+      display: none;
+    }
+    &-mobile{
+      display: none;
+      margin-bottom: 42px;
+      @media all and (max-width: 960px){
+        display: block;
+        text-align: center;
+      }
+      @media all and (max-width: $phone-wide){
+
+      }
+    }
   }
   &__brand{
     width: 31.5rem;
     padding-right: 4.8rem;
     display: flex;
     flex-direction: column;
+    @media all and (max-width: 960px){
+      width: 100%;
+      padding-right: 0;
+    }
   }
   &__date{
     margin-top: 2.4rem;
@@ -1455,28 +1481,74 @@ body{
     letter-spacing: 0.75px;
     color: #0D0E17;
     margin-bottom: 2.4rem;
+    @media all and (max-width: 960px){
+      margin-top: 24px;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      margin-bottom: 0;
+    }
   }
   &__emblema{
     margin-top: 2.4rem;
+    @media all and (max-width: 960px){
+      margin-top: 24px;
+      text-align: center;
+      img{
+        width: 96px;
+        height: 96px;
+      }
+    }
   }
   &__about{
     padding-top: 2.4rem;
     flex: 1;
     display: flex;
     align-items: flex-end;
+    @media all and (max-width: 960px){
+      max-width: 290px;
+      margin: auto;
+      text-align: center;
+      margin-top: 24px;
+      p{
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 30px;
+      }
+    }
   }
   &__navigate{
     width: calc(100% - 31.5rem);
     display: flex;
+    @media all and (max-width: 960px){
+      width: 100%;
+    }
+    @media all and (max-width: $tablet-tort){
+      flex-wrap: wrap;
+    }
     > div{
       width: 25%;
+      @media all and (max-width: $tablet-tort){
+        width: 100%;
+        text-align: center;
+      }
       &.footer__products{
         width: 50%;
+        @media all and (max-width: $tablet-tort){
+          width: 100%;
+        }
         .footer__navigate-list{
           display: flex;
+          @media all and (max-width: $tablet-tort){
+            display: none;
+          }
         }
         .footer__navigate-item{
           width: 50%;
+          @media all and (max-width: $tablet-tort){
+            width: 100%;
+          }
         }
       }
     }
@@ -1484,12 +1556,19 @@ body{
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 0;
+      @media all and (max-width: $tablet-tort){
+        display: none;
+      }
     }
     &-item{
       width: 100%;
       padding-left: 0;
       margin-bottom: 2.4rem;
       padding-right: 2.7rem;
+      @media all and (max-width: $tablet-tort){
+        margin-right: 0;
+        padding-right: 0;
+      }
     }
     &-link{
       text-decoration: none;
@@ -1498,6 +1577,11 @@ body{
       line-height: 1.6rem;
       letter-spacing: 0.75px;
       color: #0D0E17;
+      @media all and (max-width: $tablet-tort){
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 30px;
+      }
     }
   }
   &__menu-name{
@@ -1507,6 +1591,27 @@ body{
     letter-spacing: 1.125px;
     color: #0D0E17;
     margin-bottom: 1.9rem;
+    &.active{
+      svg{
+        transform: rotate(180deg);
+      }
+    }
+    svg{
+      display: none;
+      margin-left: 8px;
+      @media all and (max-width: $tablet-tort){
+        display: inline-block;
+
+      }
+    }
+    @media all and (max-width: $tablet-tort){
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 .way{

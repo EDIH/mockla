@@ -24,6 +24,10 @@
             <div class="footer__products">
                 <div class="footer__menu-name">
                     Products
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L13 1" stroke="#0D0E17" stroke-width="2"/>
+                    </svg>
+
                 </div>
                 <nav class="footer__navigate-nav">
                     <ul class="footer__navigate-list">
@@ -49,6 +53,10 @@
             <div class="footer__Info">
                 <div class="footer__menu-name">
                     Info
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L13 1" stroke="#0D0E17" stroke-width="2"/>
+                    </svg>
+
                 </div>
                 <nav class="footer__navigate-nav">
                     <ul class="footer__navigate-list">
@@ -63,6 +71,10 @@
             <div class="footer__engage">
                 <div class="footer__menu-name">
                     Engage
+                    <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L13 1" stroke="#0D0E17" stroke-width="2"/>
+                    </svg>
+
                 </div>
                 <nav class="footer__navigate-nav">
                     <ul class="footer__navigate-list">
@@ -72,6 +84,11 @@
                     </ul>
                 </nav>
             </div>
+        </div>
+        <div class="footer__logo-mobile">
+            <a href="{{ url('/') }}">
+                <img src="{{ url('/') }}/img/footer/logo.svg" alt="Logo">
+            </a>
         </div>
     </div>
 </footer>
