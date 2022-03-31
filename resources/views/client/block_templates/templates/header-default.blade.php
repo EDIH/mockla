@@ -44,5 +44,5 @@ $contents = $block->mappedByKey();
     </div>
 </header>
 {{-- TODO relocate--}}
-<main class="main" id="main">
+<main class="main" id="main" role="main">
     <article>

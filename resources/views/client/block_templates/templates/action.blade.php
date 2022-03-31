@@ -13,7 +13,10 @@
                 </a>
             </div>
             <div class="action__image">
-                <img src="{{ url('/') }}/img/templates/action/img-desktop.png">
+                <picture>
+                    <source srcset="{{ url('/') }}/img/templates/action/img-desktop.png" media="(min-width: 500px)">
+                    <img src="{{ url('/') }}/img/templates/action/img-mob.png" alt="">
+                </picture>
             </div>
         </div>
     </div>

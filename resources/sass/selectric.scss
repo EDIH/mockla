@@ -29,6 +29,7 @@ $selectric-font-size:       2rem !default;                                      
     background: #FFFFFF;
     @media all and (max-width: 500px) {
         min-width: auto;
+      border-radius: 10px;
     }
   .label {
     display: flex;
@@ -49,6 +50,7 @@ $selectric-font-size:       2rem !default;                                      
     color: #0D0E17;
     @media all and (max-width: 500px) {
       font-size: 18px;
+      height: 44px;
     }
   }
 
@@ -67,6 +69,10 @@ $selectric-font-size:       2rem !default;                                      
     font: 0/0 a;
     *font: 20px/#{$selectric-inner-height} Lucida Sans Unicode, Arial Unicode MS, Arial;
     padding: 0 15px;
+    @media all and (max-width: 500px) {
+      height: 48px;
+      width: 44px;
+    }
     &:after {
       content: " ";
       position: absolute;
