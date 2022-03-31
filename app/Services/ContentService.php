@@ -33,10 +33,9 @@ class ContentService
                 foreach ($data['content'] as $iso => $content) {
                     $language = Language::where('iso', $iso)->first();
                     foreach ($content as $block_template_attribute_id => $value) {
-                        $contents = $block->contents->mapWithKeys(function ($content) {
+                        $contents = $block->contents()->get()->mapWithKeys(function ($content) {
                             return [$content->block_template_attribute_id => $content];
                         });
-//                        dd($contents);
                         $block_template_attribute_model = BlockTemplateAttribute::find($block_template_attribute_id);
 
                         if ($block_template_attribute_model->type == 0) {
@@ -54,7 +53,7 @@ class ContentService
 
                         if ($block_content = $contents[$block_template_attribute_id] ?? null) {
 
-                            if(isset($block_content->mappedByLang()[$language->id])){
+                            if(isset($block_content->mappedByLang()[$language->id])) {
                                 $block_content->mappedByLang()[$language->id]->update([
                                     'value' => $value
                                 ]);
@@ -76,6 +75,9 @@ class ContentService
                                 'lang_id' => Cache::get('languages')->get($iso),
                             ]);
                         }
+//                        $contents2 = $block->contents->mapWithKeys(function ($content) {
+//                            return [$content->block_template_attribute_id => $content];
+//                        });
                     }
                 }
             }
