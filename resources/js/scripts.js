@@ -25,6 +25,25 @@ $(document ).ready(function() {
         });
     }
 
+    if($('.offer__select-current').length){
+        $(".offer__select-current").click(function() {
+            $(this).toggleClass('active');
+            $('.offer__select-else').fadeToggle(0);
+            $(".offer__select-else .select-nav-item").click(function() {
+                let Elem = $(this);
+                $(".tabs-elements .tabs-nav-item").removeClass("active").eq($(this).index()).addClass("active");
+                $(".tabs-elements .tabs-content-item").hide().eq($(this).index()) .css("display", "flex")
+                    .hide()
+                    .fadeIn();
+                $('.offer__select-current').empty();
+                Elem.clone(true).appendTo('.offer__select-current');
+                $('.offer__select-current').removeClass('active');
+                $('.offer__select-else').fadeOut(0);
+            }).eq(0).addClass("active");
+            $(".tabs-elements .tabs-content-item").eq(0).addClass("active");
+        });
+    }
+
     if($('.tabs-elements').length){
         $(".tabs-elements .tabs-nav-item").click(function() {
             $(".tabs-elements .tabs-nav-item").removeClass("active").eq($(this).index()).addClass("active");
