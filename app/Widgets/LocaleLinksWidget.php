@@ -5,6 +5,7 @@ use App\Widgets\Contract\ContractWidget;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
+use PeterColes\Languages\LanguagesFacade;
 
 class LocaleLinksWidget implements ContractWidget
 {
@@ -29,14 +30,19 @@ class LocaleLinksWidget implements ContractWidget
         foreach($this->page->seos as $seo) {
             $lang_id = $seo->lang_id;
 
+            $text = LanguagesFacade::keyValue([$isoById->get($lang_id)], 'mixed')[0]->value;
+
             if($isoById->get($lang_id) != App::getLocale()) {
                 if($isoById->get($lang_id) == config('app.fallback_locale'))
-                    $links[$isoById->get($lang_id)] = "/{$seo->alias}";
+                    $links[$isoById->get($lang_id)]['link'] = "/{$seo->alias}";
+
                 else
-                    $links[$isoById->get($lang_id)] = "/{$isoById->get($lang_id)}/{$seo->alias}";
+                    $links[$isoById->get($lang_id)]['link'] = "/{$isoById->get($lang_id)}/{$seo->alias}";
             } else {
-                $links[$isoById->get($lang_id)] = false;
+                $links[$isoById->get($lang_id)]['link'] = false;
             }
+
+            $links[$isoById->get($lang_id)]['text'] = $text;
 
         }
 
