@@ -64,9 +64,10 @@
                     /**
                      * @var $attribute \App\Models\BlockTemplateAttribute
                      * @var $u_id int
+                     * @var $language \App\Models\Language
                      */
 
-                    $input_name = "iterations[{$u_id}][attributes][{$attribute->id}]";
+                    $input_name = "iterations[{$u_id}][attributes][{$language->iso}][{$attribute->id}]";
                 @endphp
 
                 <div class="form-group field-{{ \App\Models\BlockTemplateAttribute::TYPE_LIST[$attribute->type] }}">
@@ -174,7 +175,7 @@
                         @endphp
                         <label for=""> {{ $attribute->name }} </label>
                         <select
-                            name="content[{{ $attribute->id }}]"
+                            name="{{ $input_name }}"
                             id="{{ $properties['id'] }}"
                             @class($properties['class_list'])
                             @isset($properties['size']) size="{{ $properties['size'] }}" @endif

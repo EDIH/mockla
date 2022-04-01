@@ -3,7 +3,7 @@
      * @var $attribute \App\Models\BlockTemplateAttribute
      * @var $iteration \App\Models\BlockTemplateRepeaterIteration
      * @var $u_id int
-     *
+     * @var $language \App\Models\Language
      */
 
 
@@ -11,10 +11,16 @@
     $iteration_class_name = class_basename(\App\Models\BlockTemplateRepeaterIteration::class);
     if(isset($contents[$attribute->id])) {
         $content = $contents[$attribute->id];
-        $input_name = "old_iterations[{$iteration_class_name}_{$iteration->id}][old_attributes][{$content->id}]";
-        $value = $contents[$attribute->id]['translate']->value;
+        $input_name = "old_iterations[{$iteration_class_name}_{$iteration->id}][old_attributes][{$language->iso}][{$content->id}]";
+
+        if(is_object($contents[$attribute->id]['translate'])){
+            $value = $contents[$attribute->id]->mappedByLang()[$language->id]->value ?? $attribute->default_value;
+        } else {
+            $value = $attribute->default_value;
+        }
+
     } else {
-        $input_name = "old_iterations[{$iteration_class_name}_{$iteration->id}][attributes][{$attribute->id}]";
+        $input_name = "old_iterations[{$iteration_class_name}_{$iteration->id}][attributes][{$language->iso}][{$attribute->id}]";
         $value = $attribute->default_value;
     }
 @endphp
@@ -183,7 +189,7 @@
         {{--            <div class="input-group mb-3" id="option_input_{{ $attribute->id }}" style="">--}}
         @php
             /** @var $attribute \App\Models\BlockTemplateAttribute */
-            $properties = $attribute['setting']->properties;
+            $properties = $attribute->setting->decodedProperties;
         @endphp
         <label for=""> {{ $attribute->name }} </label>
         <select
