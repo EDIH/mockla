@@ -69,20 +69,19 @@ class BlockTemplateRepeaterIteration extends Model
 
     public function mappedByKey ()
     {
-        $contents = $this->contents()->with('translations')->get()->mapWithKeys(function ($content) {
+        $contents = $this
+            ->contents()
+            ->with('translations')
+            ->get()
+            ->mapWithKeys(function ($content) {
             return [$content->block_template_attribute_id => $content];
         });
+
         return $this
             ->repeater
             ->attrs
             ->mapWithKeys(function($attr) use ($contents) {
-                $value = $contents[$attr->id]->translations[0] ?? $attr;
-//                $value = $contents[$attr->id]->translations[0] ?? $attr;
-//                dd($contents);
-//                if(!$contents[$attr->id]) {
-//                    dd($contents[$attr->id]);
-//                }
-//                dd([$contents[$attr->id] => $value]);
+                $value = $contents[$attr->id]->translate ?? $attr;
                 return [$attr->key => $value];
             });
     }

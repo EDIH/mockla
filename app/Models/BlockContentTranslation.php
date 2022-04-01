@@ -63,20 +63,19 @@ class BlockContentTranslation extends Model
         parent::__construct($attributes);
     }
 
-    public function __get($key) {
-        return $this->getAttributeValue($key) ?? $this->getRelationValue($key) ?? '';
-    }
+//    public function __get($key) {
+//        return $this->getAttributeValue($key) ?? $this->getRelationValue($key) ?? '';
+//    }
 
     // OWNER CONTENT
 
     /**
      * @return HasOne
      */
-    public function content (): HasOne
+    public function content(): HasOne
     {
         return $this
-            ->hasOne(BlockContent::class, 'id', 'block_id')
-            ->with('contents');
+            ->hasOne(BlockContent::class, 'id', 'block_content_id');
     }
 
 
