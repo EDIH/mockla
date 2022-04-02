@@ -6,6 +6,11 @@ $(document ).ready(function() {
     }
 
     if($('.header__language').length){
+        const ps = new PerfectScrollbar('.header__language-else', {
+            wheelSpeed: 2,
+            wheelPropagation: true,
+            minScrollbarLength: 84
+        });
         $(".header__language .header__language-current").click(function() {
             $('.header__language-else').fadeToggle(300);
         });

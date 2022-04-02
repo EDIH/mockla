@@ -2,6 +2,7 @@
 @import "_normalize.scss";
 @import "_default.scss";
 @import "_variables.scss";
+@import "perfect-scrollbar";
 @import "selectric";
 @import "aos.scss";
 $desktop-wide: 1921px;
@@ -438,8 +439,8 @@ body{
       width: max-content;
       overflow-y: hidden;
       &-wrapper{
+        height: auto;
         max-height: 131px;
-        overflow-y: scroll;
       }
       a{
         margin: 0 6px 0 0!important;

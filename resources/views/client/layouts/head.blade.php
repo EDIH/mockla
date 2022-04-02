@@ -5,6 +5,7 @@
     <title>{{ $page->seo->title }}</title>
     <link href="{{ url('/') }}/css/fonts.css?v={{ time() }}" rel="stylesheet">
     <link href="{{ url('/') }}/css/style.css?v={{ time() }}" rel="stylesheet">
+    <script src="{{ url('/') }}/js/perfect-scrollbar.common.js" defer></script>
     <link rel="icon" type="image/png" href="{{ url('/') }}/img/icons/favicon.png" sizes="32x32">
     <link rel="icon" type="image/svg" href="{{ url('/') }}/img/icons/favicon.svg" sizes="32x32">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
