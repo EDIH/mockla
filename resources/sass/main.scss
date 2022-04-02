@@ -308,7 +308,11 @@ body{
     max-width: 300px;
     transition: right ease-in 0.5s;
     will-change: transform;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
+    .header__login{
+      display: block;
+      margin: 37px auto 0 auto;
+    }
     .header__nav-list{
       display: flex;
       flex-direction: column;
@@ -348,12 +352,18 @@ body{
       a, span{
         color: white;
       }
+      svg{
+        path{
+          fill: white;
+        }
+      }
       .header__language-else{
-        position: static;
-        left: 0;
-        top: 0;
+        //position: static;
+        left: calc(50% - 100px);
+        top: 100%;
         margin-top: 10px;
-        display: block!important;
+        //display: block!important;
+        width: 200px;
         a, span{
           font-weight: 300;
           font-size: 14px;
