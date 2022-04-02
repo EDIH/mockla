@@ -41,6 +41,36 @@ $contents = $block->mappedByKey();
             <span></span>
             <span></span>
         </div>
+        <div class="header__mobile">
+            <nav class="header__mobile-nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item has-child">
+                        <a href="#" class="header__nav-lnk">Yolllo Products</a>
+                        <ul class="child-menu-list-child">
+                            <li class="header__nav-item">
+                                <a href="#" class="header__nav-lnk">Yolllo Products</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a href="#" class="header__nav-lnk">Yolllo Products</a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a href="#" class="header__nav-lnk">Yolllo Products</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-lnk">Premium</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-lnk">Why Yolllo</a>
+                    </li>
+                </ul>
+            </nav>
+            @widget('localeLinks', ['page' => $page])
+            <div class="header__login">
+                <a class="orange-button" href="{{ $contents['button-lnk']['value'] }}">{{ $contents['button-title']['value'] }}</a>
+            </div>
+        </div>
     </div>
 </header>
 {{-- TODO relocate--}}

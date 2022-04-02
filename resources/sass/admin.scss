@@ -112,6 +112,25 @@
     > .add-iteration{
         width: 100%;
     }
+    > .tab-content{
+        .tab-pane{
+            > .iterations{
+                display: flex;
+                flex-wrap: wrap;
+                > div{
+                    width: 100%;
+                    .iterations{
+                        > div{
+                            width: 100%;
+                            .field-input{
+                              width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 .form-group.field-image, .form-group .input-group{
     display: flex;
