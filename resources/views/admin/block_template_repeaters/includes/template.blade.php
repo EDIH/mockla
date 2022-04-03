@@ -1,4 +1,4 @@
-<div class="border border-primary rounded new-iteration {{ $repeater->class }}"id="{{ $u_id }}">
+<div class="border border-primary rounded new-iteration {{ $repeater->class }}" id="{{ $u_id }}">
     <button
         data-id="{{ $u_id }}"
         class="btn btn-danger btn-icon content remove-new-iteration"

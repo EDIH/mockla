@@ -103,7 +103,7 @@ Route::group([
     });
 
     Route::prefix('block_template_repeaters')->group(function () {
-        Route::get('{block_template_repeater}/{parent_type}/{parent_id}', [BlockTemplateRepeaterController::class, 'show'])->name('block_template_repeaters.template');
+        Route::get('{block_template_repeater}/{parent_type}/{parent_id}/{language}', [BlockTemplateRepeaterController::class, 'show'])->name('block_template_repeaters.template');
     });
 
     Route::prefix('block_template_repeater_iterations')->group(function () {

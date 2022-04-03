@@ -7,6 +7,7 @@
          */
         $input_name = "iterations[{$u_id}][attributes][{$language->iso}][{$attribute->id}]";
     @endphp
+
     <div class="form-group field-{{ \App\Models\BlockTemplateAttribute::TYPE_LIST[$attribute->type] }}">
         @switch($attribute->type)
 

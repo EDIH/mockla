@@ -59,7 +59,7 @@ use App\Models\BlockContent;
         </div>
         <div class="card-body">
             <div class="tab-content" id="custom-tabs-two-tabContent">
-                @foreach(\App\Models\Language::where('enabled', true)->get() as $language)
+                @foreach(\App\Models\Language::enabled()->get() as $language)
                     <div class="tab-pane fade show @if($loop->first) active @endif" id="content_tab_{{ $language->iso }}" role="tabpanel"
                          aria-labelledby="content_tab_{{ $language->iso }}">
                         @php
