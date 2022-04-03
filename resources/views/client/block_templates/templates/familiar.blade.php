@@ -8,10 +8,10 @@ $contents = $block->mappedByKey();
     <div class="familar__container main-container">
         <div class="familar__text">
             <h2 class="familar__title section-title">
-                Familiar with our niche? We're so proud of you!
+                {{ $contents['title']['value'] }}
             </h2>
             <h3 class="familar__subtitle section-subtitle">
-                Level up your self with our services! Rise up your sales conversion rate.
+                {{ $contents['subtitle']['value'] }}
             </h3>
             <div class="familar__list">
                 <div class="familar__item">
@@ -120,9 +120,9 @@ $contents = $block->mappedByKey();
         </div>
         <div class="familar__image padding-right">
             <picture>
-                <source srcset="{{ url('/') }}/img/templates/familiar/pers-desk.jpg" media="(min-width: 1024px)">
-                <source srcset="{{ url('/') }}/img/templates/familiar/pers-tablet.jpg" media="(min-width: 768px)">
-                <img src="{{ url('/') }}/img/templates/familiar/pers-mob.jpg" alt="">
+                <source srcset="{{  url('/') . '/uploads/contents/' . $contents['image-desktop']['value'] }}" media="(min-width: 1024px)">
+                <source srcset="{{  url('/') . '/uploads/contents/' . $contents['image-tablet']['value'] }}" media="(min-width: 768px)">
+                <img src="{{  url('/') . '/uploads/contents/' . $contents['image-mobile']['value'] }}" alt="{{ $contents['title']['value'] }}">
             </picture>
         </div>
     </div>
