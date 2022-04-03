@@ -1,3 +1,9 @@
+<?php
+/**
+ * @var $block \App\Models\Block
+ */
+$contents = $block->mappedByKey();
+?>
 <section class="familar">
     <div class="familar__container main-container">
         <div class="familar__text">
