@@ -14,7 +14,6 @@ $contents = $block->mappedByKey();
             <form action="" method="post">
                 <h2 class="steps__title section-title">
                     {{ $contents['title']['value'] }}
-
                 </h2>
                 <label for="" class="steps__label">
                     <p class="steps__subtitle section-subtitle">How much do you want to earn per month?</p>
