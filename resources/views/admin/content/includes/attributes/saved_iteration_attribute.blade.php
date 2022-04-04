@@ -208,5 +208,49 @@
             @endforeach
         </select>
         @break
+
+        @case(10)
+        {{--        @dd($content->translate->value);--}}
+        <label for=""> {{ $attribute->name }} </label>
+        @php
+
+            /** @var $block \App\Models\Block */
+            /** @var $attribute \App\Models\BlockTemplateAttribute */
+            /** @var $value string */
+            $url = isset($contents[$attribute->id])
+            ? '/uploads/contents/' . $value
+            : '/uploads/block_template_attributes/' . $value;
+            $u_img_id = rand(10**4, 10**5);
+        @endphp
+        <img
+                class="img-fluid pad"
+                src="{{ $url }}"
+                alt="Preview"
+                id="image_{{ $iteration->id }}_{{ $attribute->id }}_{{ $u_img_id }}"
+        >
+        {{--            <input type="hidden" name="content[{{ $content->id }}]" value="{{ $content->translate->value }}">--}}
+        <div class="input-group mb-3" id="option_image_{{ $iteration->id }}_{{ $attribute->id }}_{{ $u_img_id }}">
+            <div class="custom-file">
+                {{--                    <input type="hidden" name="content[{{ $attribute->id }}][{{ $content->id }}]" value="{{ $content->value }}">--}}
+                <input
+                        id="optionFile_{{ $iteration->id }}_{{ $attribute->id }}_{{ $u_img_id }}"
+                        type="file"
+                        class="custom-file-input input"
+                        name="{{ $input_name }}"
+                        data-id="{{$iteration->id}}_{{ $attribute->id }}_{{ $u_img_id }}">
+
+                <label class="custom-file-label" for="optionFile_{{$iteration->id}}_{{ $attribute->id }}_{{ $u_img_id }}">{{ $value }}</label>
+            </div>
+        </div>
+        @isset($contents[$attribute->id])
+            <button
+                    type="button"
+                    class="btn btn-danger btn-icon block clear-value"
+                    data-prop_id="{{ $contents[$attribute->id]->id }}"
+                    data-attr_id="{{$iteration->id}}_{{ $attribute->id }}_{{ $u_img_id }}">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+        @endif
+        @break
     @endswitch
 </div>
