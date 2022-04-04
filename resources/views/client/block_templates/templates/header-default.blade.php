@@ -11,7 +11,7 @@ $contents = $block->mappedByKey();
         <nav class="header__nav">
             <ul class="header__nav-list">
                 <li class="header__nav-item has-child">
-                    <a href="#" class="header__nav-lnk">Yolllo Products</a>
+                    <div class="header__nav-lnk">{{ $var['premium-name'] }}</div>
                     <ul class="child-menu-list-child">
                         <li class="header__nav-item">
                             <a href="#" class="header__nav-lnk">Yolllo Products</a>
@@ -24,12 +24,18 @@ $contents = $block->mappedByKey();
                         </li>
                     </ul>
                 </li>
-                <li class="header__nav-item">
-                    <a href="#" class="header__nav-lnk">Premium</a>
-                </li>
-                <li class="header__nav-item">
-                    <a href="#" class="header__nav-lnk">Why Yolllo</a>
-                </li>
+                @if($contents['premium-lnk']['value'])
+                    <li class="header__nav-item">
+                        <a href="{{ $contents['premium-lnk']['value'] }}" class="header__nav-lnk">{{ $var['premium-name'] }}</a>
+                    </li>
+                @endif
+
+                @if($contents['why-yolllo-lnk']['value'])
+                    <li class="header__nav-item">
+                        <a href="{{ $contents['why-yolllo-lnk']['value'] }}" class="header__nav-lnk">{{ $var['whu-yollio'] }}</a>
+                    </li>
+                @endif
+
             </ul>
         </nav>
         @widget('localeLinks', ['page' => $page])
@@ -45,7 +51,7 @@ $contents = $block->mappedByKey();
             <nav class="header__mobile-nav">
                 <ul class="header__nav-list">
                     <li class="header__nav-item has-child">
-                        <a href="#" class="header__nav-lnk">Yolllo Products</a>
+                        <div class="header__nav-lnk">{{ $var['premium-name'] }}</div>
                         <ul class="child-menu-list-child">
                             <li class="header__nav-item">
                                 <a href="#" class="header__nav-lnk">Yolllo Products</a>
@@ -58,12 +64,17 @@ $contents = $block->mappedByKey();
                             </li>
                         </ul>
                     </li>
-                    <li class="header__nav-item">
-                        <a href="#" class="header__nav-lnk">Premium</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="#" class="header__nav-lnk">Why Yolllo</a>
-                    </li>
+                    @if($contents['premium-lnk']['value'])
+                        <li class="header__nav-item">
+                            <a href="{{ $contents['premium-lnk']['value'] }}" class="header__nav-lnk">{{ $var['premium-name'] }}</a>
+                        </li>
+                    @endif
+
+                    @if($contents['why-yolllo-lnk']['value'])
+                        <li class="header__nav-item">
+                            <a href="{{ $contents['why-yolllo-lnk']['value'] }}" class="header__nav-lnk">{{ $var['whu-yollio'] }}</a>
+                        </li>
+                    @endif
                 </ul>
             </nav>
             @widget('localeLinks', ['page' => $page])
