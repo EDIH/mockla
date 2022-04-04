@@ -138,7 +138,7 @@
             </div>
             <div class="subtitle">Oops!
                 Wrong page specified</div>
-            <a class="button-404" href="<?php echo url('/');?>">Main page</a>
+            <a class="button-404" href="<?php echo url('/');?>">{{ $var['to-main'] }}</a>
         </div>
     </div>
 

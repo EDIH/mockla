@@ -3,14 +3,22 @@
         @foreach($iterations as $iteration)
             <div class="border rounded saved-iteration {{ $repeater->class }}"
                  id="{{ $iteration->id }}">
-                <div class="move">+</div>
-                <button
-                        data-url="{{ route('admin.block_template_repeater_iterations.delete', [ 'iteration'=> $iteration ]) }}"
-                        type="submit"
-                        class="btn btn-danger btn-icon content remove-iteration"
-                >
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
+                <div class="iteration-buttons">
+                    <div class="move btn">+</div>
+                    <div class="devider-block" style="flex: 1"></div>
+                    <button
+                            data-url="{{ route('admin.block_template_repeater_iterations.delete', [ 'iteration'=> $iteration ]) }}"
+                            type="submit"
+                            class="btn btn-danger btn-icon content remove-iteration"
+                    >
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                    <div class="hide btn">
+                        <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L7.5 6L14 1" stroke="#0D0E17" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
                 <input
                         type="hidden"
                         name="old_iterations[{{ class_basename(\App\Models\BlockTemplateRepeaterIteration::class) }}_{{ $iteration->id }}][iteration_id]"
