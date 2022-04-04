@@ -18,10 +18,8 @@ $counter = 100;
                 <div class="offer__select-current">
                     @foreach($block->iterations as $offer)
                         @php
-                            /**
-         * @var $offer \App\Models\BlockTemplateRepeaterIteration
-         */
-                                $properties = $offer->mappedByKey();
+                            /** @var $offer \App\Models\BlockTemplateRepeaterIteration */
+                            $properties = $offer->mappedByKey();
                         @endphp
                         @if ($loop->first)
                             <div class="offer__select-item">
@@ -38,10 +36,8 @@ $counter = 100;
                 <div class="offer__select-else">
                     @foreach($block->iterations as $offer)
                         @php
-                            /**
-         * @var $offer \App\Models\BlockTemplateRepeaterIteration
-         */
-                                $properties = $offer->mappedByKey();
+                            /** @var $offer \App\Models\BlockTemplateRepeaterIteration */
+                            $properties = $offer->mappedByKey();
                         @endphp
                         {{--                    @dd($properties)--}}
                         <div class="offer__select-item select-nav-item">
@@ -57,11 +53,8 @@ $counter = 100;
             </div>
             <div class="offer__nav tabs-nav">
                 @foreach($block->iterations as $offer)
-                    @dd($offer->id)
                     @php
-                        /**
-     * @var $offer \App\Models\BlockTemplateRepeaterIteration
-     */
+                        /** @var $offer \App\Models\BlockTemplateRepeaterIteration */
                             $properties = $offer->mappedByKey();
                     @endphp
                     {{--                    @dd($properties)--}}
@@ -74,7 +67,8 @@ $counter = 100;
                         </div>
                     </div>
                     @php
-                        $counter = $counter + 200;
+                        /** @var $counter int */
+                        $counter += 200;
                     @endphp
                 @endforeach
             </div>
@@ -82,14 +76,13 @@ $counter = 100;
                 @foreach($block->iterations as $offer)
                     <div class="offer__offer-item tabs-content-item">
                         @php
+                            /** @var  $offer \App\Models\BlockTemplateRepeaterIteration */
                             $innerproperties = $offer->mappedByKey();
                         @endphp
                         @foreach($offer->iterations as $content)
                             @php
 
-                                /**
-         * @var $content \App\Models\BlockTemplateRepeaterIteration
-         */
+                                /** @var $content \App\Models\BlockTemplateRepeaterIteration */
                                     $inner_properties = $content->mappedByKey();
 
                                     $class_name = $inner_properties['type-row']
@@ -112,7 +105,7 @@ $counter = 100;
                                         </svg>
                                     @elseif($class_name == "icon")
                                         {!!  $inner_properties['content-value']['value'] ?? ''  !!}
-                                        <img src="{{ url('/') }}/img/templates/offer/icon.svg" alt="">
+                                        <img src="{{ url('/img/templates/offer/icon.svg') }}" alt="">
                                     @else
                                         {{ $inner_properties['content-value']['value'] ?? '' }}
                                     @endif
@@ -120,7 +113,8 @@ $counter = 100;
                             </div>
                         @endforeach
                         <div class="offer__buttons">
-                            <a href="{{ $innerproperties['item-lnk-by']['value'] ?? '' }}" class="offer__button pink-button js-buy-offer">
+                            <a href="{{ $innerproperties['item-lnk-by']['value'] ?? '' }}"
+                               class="offer__button pink-button js-buy-offer">
                                 Buy now for {!! $innerproperties['item-price']['value'] ?? '' !!}
                             </a>
                             <div class="offer__button offer__discount js-buy-discount">

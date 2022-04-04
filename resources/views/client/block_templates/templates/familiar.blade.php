@@ -17,9 +17,7 @@ $counter = 100;
             <div class="familar__list">
                 @foreach($block->iterations as $item)
                     @php
-                        /**
-                        * @var  $item \App\Models\BlockTemplateRepeaterIteration
-                         */
+                        /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
                         $properties = $item->mappedByKey();
                     @endphp
                     <div class="familar__item" data-aos="fade-right" data-aos-delay="{{ $counter }}">
@@ -44,10 +42,8 @@ $counter = 100;
                         </div>
                     </div>
                     @php
-                        /**
-                         *  @var $counter int
-                         */
-                            $counter += 100;
+                        /** @var $counter int */
+                        $counter += 100;
                     @endphp
                 @endforeach
             </div>
