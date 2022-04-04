@@ -6,6 +6,7 @@ use App\Models\BlockTemplate;
 use App\Models\BlockTemplateAttribute;
 use App\Models\Variable;
 use Illuminate\Events\Dispatcher;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -31,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Dispatcher $events)
     {
 // add non-approved comments counter to sidebar menu
-
+//        dd(App::getLocale());
         $variables = Variable::all()
             ->groupBy('section');
 
