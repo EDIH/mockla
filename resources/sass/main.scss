@@ -523,8 +523,11 @@ body{
             transform: rotate(45deg);
             cursor: pointer;
             @media all and (max-width: $laptop){
-              top: 5px;
+              top: 8px;
             }
+          @media all and (max-width: $laptop-midle){
+            top: 5px;
+          }
           @media all and (max-width: $phone-wide){
             top: 4px;
           }
