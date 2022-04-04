@@ -3,11 +3,12 @@
  * @var $block \App\Models\Block
  */
 $contents = $block->mappedByKey();
+$counter = 100;
 ?>
 <section class="offer main-container">
     <div class="offer__cotainer main-container">
         <div class="offer__header">
-            <h2 class="offer__title section-title">
+            <h2 class="offer__title section-title" data-aos="fade-right" data-aos-delay="100">
                 {{ $contents['title']['value'] }}
             </h2>
             <img src="{{ url('/img/templates/offer/emblema.svg') }}">
@@ -63,7 +64,7 @@ $contents = $block->mappedByKey();
                             $properties = $offer->mappedByKey();
                     @endphp
                     {{--                    @dd($properties)--}}
-                    <div class="offer__nav-item tabs-nav-item">
+                    <div class="offer__nav-item tabs-nav-item" data-aos="fade-right" data-aos-delay="{{ $counter }}">
                         <div class="offer__nav-name">
                             {{ $properties['tab-name']['value'] ?? '' }}
                         </div>
@@ -71,9 +72,12 @@ $contents = $block->mappedByKey();
                             {{ $properties['tab-cost']['value'] ?? '' }}
                         </div>
                     </div>
+                    @php
+                        $counter = $counter + 200;
+                    @endphp
                 @endforeach
             </div>
-            <div class="offer__offer tabs-content">
+            <div class="offer__offer tabs-content" data-aos="fade-up" data-aos-delay="500">
                 @foreach($block->iterations as $offer)
                     <div class="offer__offer-item tabs-content-item">
                         @php

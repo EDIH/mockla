@@ -5,6 +5,9 @@
 }
 #contentForm{
     padding: 1rem;
+    .row.iterations{
+        width: 100%;
+    }
     .row{
         padding: 1rem;
         > div{
@@ -23,7 +26,7 @@
     .tab-content{
         .tab-pane{
             .iterations{
-                > .saved-iteration{
+                > .saved-iteration, > .new-iteration{
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;

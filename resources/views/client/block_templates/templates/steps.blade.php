@@ -3,7 +3,7 @@ $contents = $block->mappedByKey();
 ?>
 <section class="steps main-container">
     <div class="steps__container padding-right padding-left">
-        <div class="steps__image">
+        <div class="steps__image" data-aos="fade-right" data-aos-delay="100">
             <picture>
                 <source srcset="{{  url('/') . '/uploads/contents/' . $contents['image-desktop']['value'] }}" media="(min-width: 1024px)">
                 <source srcset="{{  url('/') . '/uploads/contents/' . $contents['image-tablet']['value'] }}" media="(min-width: 768px)">
@@ -22,7 +22,7 @@ $contents = $block->mappedByKey();
                         <option value="2000">2000$</option>
                     </select>
                 </label>
-                <label for="" class="steps__label">
+                <label for="" class="steps__label" data-aos="fade-right" data-aos-delay="300">
                     <p class="steps__subtitle section-subtitle">How much time per day are you willing to allocate?</p>
                     <select class="steps__select elem-select">
                         <option value="1 hour">1 hour</option>

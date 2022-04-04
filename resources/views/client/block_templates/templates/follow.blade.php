@@ -3,10 +3,10 @@ $contents = $block->mappedByKey();
 ?>
 <section class="follow main-container">
     <div class="follow__container main-container">
-        <h2 class="follow__title section-title">
+        <h2 class="follow__title section-title" data-aos="fade-right" data-aos-delay="100">
             {{ $contents['title']['value'] }}
         </h2>
-        <div class="follow__socials">
+        <div class="follow__socials" data-aos="fade-up" data-aos-delay="500">
             @if($contents['facebook']['value'])
                 <a class="follow__lnk" href="{{ $contents['facebook']['value'] }}">
                     <img src="{{ url('/') }}/img/templates/follow/fb.svg">
@@ -33,7 +33,7 @@ $contents = $block->mappedByKey();
                 </a>
             @endif
         </div>
-        <div class="follow__elem">
+        <div class="follow__elem" data-aos="fade-up" data-aos-delay="500">
             <div class="follow__elem-icon">
                 <img src="{{ url('/') }}/img/templates/follow/emblema.svg">
             </div>
