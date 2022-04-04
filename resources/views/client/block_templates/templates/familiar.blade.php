@@ -20,8 +20,8 @@ $contents = $block->mappedByKey();
                     @endphp
                     <div class="familar__item">
                         <div class="familar__icon">
-                            {{ $properties['icon']['value'] }}
-{{--                            <img src="{{ url('/') }}/img/templates/familiar/icon1.svg">--}}
+
+                            <img src='{{ url("/uploads/contents/{$properties['icon']['value']}") }}'>
                         </div>
                         <div class="familar__cont">
                             <h4 class="familar__name">{{ $properties['name']['value'] }}</h4>

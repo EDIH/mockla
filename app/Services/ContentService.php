@@ -45,6 +45,12 @@ class ContentService
                             $fileURL = $value->store('contents');
                             $path_ar = explode('/', $fileURL);
                             $value = end($path_ar);
+                        } elseif ($block_template_attribute_model->type == 10) {
+
+
+                            $fileURL = $value->store('contents');
+                            $path_ar = explode('/', $fileURL);
+                            $value = end($path_ar);
                         }
 //dd($block_template_attribute_id, $contents);
 
@@ -103,6 +109,11 @@ class ContentService
 
                                 } elseif ($block_content->attr->type == 5) {
 
+                                    $fileURL = $value->store('contents');
+                                    $path_ar = explode('/', $fileURL);
+                                    $value = end($path_ar);
+                                } elseif ($block_content->attr->type == 10) {
+//dd($value);
                                     $fileURL = $value->store('contents');
                                     $path_ar = explode('/', $fileURL);
                                     $value = end($path_ar);

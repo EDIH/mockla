@@ -75,7 +75,8 @@ class BlockTemplateAttribute extends Model
         'color', // 6
         'selector', // 7
         'widget', // 8
-        'checkbox' // 9
+        'checkbox', // 9
+        'icon', // 10
     ];
 
     protected $softDelete_relations = [
