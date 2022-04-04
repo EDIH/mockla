@@ -57,6 +57,7 @@ $counter = 100;
             </div>
             <div class="offer__nav tabs-nav">
                 @foreach($block->iterations as $offer)
+                    @dd($offer->id)
                     @php
                         /**
      * @var $offer \App\Models\BlockTemplateRepeaterIteration

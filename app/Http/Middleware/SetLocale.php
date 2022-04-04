@@ -24,6 +24,7 @@ class SetLocale
 //            return redirect('/');
 //        };
 //
+//        dd(1);
         $isLocale = Language::where([
             'iso' => $request->segment(1),
         ])->enabled()->exists();
@@ -35,7 +36,7 @@ class SetLocale
 ////        dd($request->segment(1));
 
         App::setLocale($isLocale ? $request->segment(1) : config('app.fallback_locale'));
-
+//dd(App::getLocale());
 //        if (!$isLocale) return redirect(App::getLocale());
 //dd($request->alias);
         return $next($request, $request->alias);
