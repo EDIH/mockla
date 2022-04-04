@@ -13,15 +13,17 @@ $contents = $block->mappedByKey();
                 <li class="header__nav-item has-child">
                     <div class="header__nav-lnk">{{ $var['premium-name'] }}</div>
                     <ul class="child-menu-list-child">
-                        <li class="header__nav-item">
-                            <a href="#" class="header__nav-lnk">Yolllo Products</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="#" class="header__nav-lnk">Yolllo Products</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="#" class="header__nav-lnk">Yolllo Products</a>
-                        </li>
+                        @foreach($block->iterations as $offer)
+                            @php
+                                /**
+             * @var $offer \App\Models\BlockTemplateRepeaterIteration
+             */
+                                    $properties = $offer->mappedByKey();
+                            @endphp
+                            <li class="header__nav-item">
+                                <a href="{{ $properties['lnk-item']['value'] ?? '' }}" class="header__nav-lnk">{{ $properties['nav-item']['value'] ?? '' }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
                 @if($contents['premium-lnk']['value'])
