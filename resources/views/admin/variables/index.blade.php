@@ -54,7 +54,7 @@
                                     @if($var->type == 0)
                                         <img src="/uploads/variables/{{ $var->translate->value }}" alt="">
                                     @else
-                                        {{ $var->translate->value }}
+                                        {{ optional($var->translate)->value }}
                                     @endif
                                 </td>
                                 <td style="white-space: nowrap;">

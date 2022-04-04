@@ -36,16 +36,17 @@ class AppServiceProvider extends ServiceProvider
             ->groupBy('section');
 
         if (isset($variables['general'])) {
+//            dd($variables['general']);
             $var = $variables['general']
                 ->mapWithKeys(function ($var) {
-                    return [$var->key => $var->translations[0]->value];
+                    return [$var->key => optional($var->translate)->value];
                 });
         }
 
         if (isset($variables['contacts'])) {
             $contacts = $variables['contacts']
                 ->mapWithKeys(function ($var) {
-                    return [$var->key => $var->translations[0]->value];
+                    return [$var->key => optional($var->translate)->value];
                 });
         }
 
