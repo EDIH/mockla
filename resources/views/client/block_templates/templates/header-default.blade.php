@@ -11,7 +11,7 @@ $contents = $block->mappedByKey();
         <nav class="header__nav">
             <ul class="header__nav-list">
                 <li class="header__nav-item has-child">
-                    <div class="header__nav-lnk">{{ $var['premium-name'] }}</div>
+                    <div class="header__nav-lnk">{{ $var['yolllo-products'] }}</div>
                     <ul class="child-menu-list-child">
                         @foreach($block->iterations as $offer)
                             @php
@@ -53,7 +53,7 @@ $contents = $block->mappedByKey();
             <nav class="header__mobile-nav">
                 <ul class="header__nav-list">
                     <li class="header__nav-item has-child">
-                        <div class="header__nav-lnk">{{ $var['premium-name'] }}</div>
+                        <div class="header__nav-lnk">{{ $var['yolllo-products'] }}</div>
                         <ul class="child-menu-list-child">
                             <li class="header__nav-item">
                                 <a href="#" class="header__nav-lnk">Yolllo Products</a>
