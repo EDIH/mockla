@@ -17,7 +17,7 @@ $counter = 100;
                 @endphp
                 <div class="ecosystem__item" data-aos="fade-up" data-aos-delay="{{ $counter }}">
                     <div class="ecosystem__icon">
-                        <img src="{{  url('/') . '/uploads/contents/' . $properties['image']['value'] }}" alt="{{ $properties['item-title']['value'] }}">
+                        <img src="{{  url("/uploads/contents/{$properties['image']['value']}") }}" alt="{{ $properties['item-title']['value'] }}">
                     </div>
                     <h3 class="ecosystem__name">
                         {{ $properties['item-title']['value'] }}
