@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePageRequest;
 use App\Models\Language;
 use App\Models\ModelSeo;
+use App\Models\ModuleItem;
 use App\Models\Page;
 use App\Repositories\PageRepository;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -72,6 +74,22 @@ class PageController extends Controller
 //    public function show(Request $request)
     public function show(): View
     {
+
+//        $model = ModelSeo::where('alias', $alias)->first()
+//        TODO get item by module item attribute name value instead any value in props list
+        $module_item = ModuleItem::whereHas('props', function (Builder $query) {
+            $query->where('value', request()->getHttpHost());
+        })
+            ->with(['seo', 'addition'])
+            ->first();
+
+//        dd($module_item);
+//        $module_item = $model->seoable;
+        $page = new Page;
+    $page->seo = $module_item->seo;
+//        TODO FUCK!!!!!
+            return view("client.module_items.landings.item", compact('module_item', 'page'));
+
         $page = $this->pageRepository->getByAlias(request()->alias ?? 'main');
 //        dd($page);
 

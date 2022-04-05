@@ -45,7 +45,7 @@ Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout
 //    ->middleware('auth');
 
 //Route::domain('{domain}')->group(function ($domain) {
-//    dd(request()->getHttpHost());
+
 //    Route::get('user/{id}', function ($domain, $id) {
 //
 //    });
@@ -249,6 +249,9 @@ Route::group([
 //            Route::get('{alias}', [App\Http\Controllers\ModuleItemController::class, 'item'])->name("{$module->name}.item");
 //        });
 //    }
+//    Route::prefix('landings')->group(function (){
+//    Route::get('/', [ModuleItemController::class, 'site']);
+//    });
     Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show');
 });
 Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show');

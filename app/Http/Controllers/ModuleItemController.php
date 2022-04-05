@@ -337,6 +337,35 @@ class ModuleItemController extends Controller
         }
     }
 
+
+    public function site()
+    {
+        dd(request()->getHttpHost());
+        if ($model = ModelSeo::where('alias', $alias)->first()) {
+            $module_item = $model->seoable;
+            $page = new Page;
+            $page->seo = $model;
+//            $alias = $module_item->module->name;
+//            dd($alias);
+//            $page = Page::whereHas('seo', function (Builder $query) use ($alias) {
+//                $query
+//                    ->where('alias', $alias)
+//                    ->orWhere('alias', 404);
+//            })
+//                ->with(['seo', 'addition'])
+//                ->first();
+
+            return view("client.module_items.{$module_item->module->name}.item", compact('module_item', 'model', 'page'));
+        } elseif ($taxonomy_item = TaxonomyItem::where('key', $alias)->first()) {
+
+            $module_name = Str::of(request()->route()->getPrefix())->ltrim('/');
+
+            $model = ModelSeo::where('alias', $module_name)->first();
+
+            return view("client.module_items.{$module_name}.category", compact('model'));
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
