@@ -7,6 +7,7 @@ use App\Repositories\Lingual\AdditionRepository;
 use App\Repositories\Lingual\SeoRepository;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class PageRepository
@@ -108,6 +109,7 @@ class PageRepository
     public function getByAlias(string $alias): Page
     {
 //        TOFIX add default model value instead 404
+//        dd(App::getLocale());
         return
             Page::whereHas('seo', function (Builder $query) use ($alias) {
                 $query->where('alias', $alias);

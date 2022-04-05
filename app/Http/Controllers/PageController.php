@@ -83,12 +83,13 @@ class PageController extends Controller
             ->with(['seo', 'addition'])
             ->first();
 
-//        dd($module_item);
+        if($module_item) {
 //        $module_item = $model->seoable;
-        $page = new Page;
-    $page->seo = $module_item->seo;
+            $page = new Page;
+            $page->seo = $module_item->seo;
 //        TODO FUCK!!!!!
             return view("client.module_items.landings.item", compact('module_item', 'page'));
+        }
 
         $page = $this->pageRepository->getByAlias(request()->alias ?? 'main');
 //        dd($page);

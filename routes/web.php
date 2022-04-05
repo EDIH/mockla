@@ -58,7 +58,7 @@ Route::group([
     'middleware' => 'auth',
     'as' => 'admin.'
 ], function () {
-    \Illuminate\Support\Facades\App::setLocale('ru');
+    \Illuminate\Support\Facades\App::setLocale('uk');
     Route::get('', function () {
         return redirect('admin/pages');
     });
@@ -254,6 +254,6 @@ Route::group([
 //    });
     Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show');
 });
-Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show');
+Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show')->middleware('locale');
 Route::get('/comment/create/{comment}', [CommentController::class, 'create'])->name('client.comment.create')->middleware('auth');
 Route::post('/comment/create', [CommentController::class, 'store'])->name('client.comment.store')->middleware('auth');
