@@ -15,7 +15,7 @@ $counter = 100;
                 {{ $contents['subtitle']['value'] }}
             </h3>
             <div class="familar__list">
-                @foreach($block->iterations as $item)
+                @foreach($block->localeIterations as $item)
                     @php
                         /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
                         $properties = $item->mappedByKey();

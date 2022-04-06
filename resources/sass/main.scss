@@ -1692,9 +1692,9 @@ body{
     &-item{
       margin-bottom: 2rem;
       display: none;
+      flex-direction: column;
       &.active{
         display: flex;
-        flex-direction: column;
       }
     }
     &-title{
