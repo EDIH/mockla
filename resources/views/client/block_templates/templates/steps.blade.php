@@ -24,7 +24,7 @@ $counter = 0;
                 <label for="" class="steps__label">
                     <p class="steps__subtitle section-subtitle">{{ $contents['first-label']['value'] }}</p>
                     <select class="steps__select elem-select">
-                        @foreach($block->localeIterations()->where('block_template_repeater_id', $ids['select-item-bottom']->id)->get() as $item)
+                        @foreach($block->localeIterations()->where('block_template_repeater_id', $ids['select-item-top']->id)->get() as $item)
                             @php
                                 /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
                                 $properties = $item->mappedByKey();
