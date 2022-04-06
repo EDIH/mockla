@@ -16,7 +16,7 @@ $counter = 100;
         <div class="offer__content tabs-elements">
             <div class="offer__select">
                 <div class="offer__select-current">
-                    @dd($block->localeIterations)
+{{--                    @dd($block->localeIterations->keyBy('id'))--}}
                     @foreach($block->localeIterations as $offer)
                         @php
                             /** @var $offer \App\Models\BlockTemplateRepeaterIteration */
