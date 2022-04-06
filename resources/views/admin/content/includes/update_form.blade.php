@@ -63,7 +63,7 @@ use App\Models\BlockContent;
                     <div class="tab-pane fade show @if($loop->first) active @endif" id="content_tab_{{ $language->iso }}" role="tabpanel"
                          aria-labelledby="content_tab_{{ $language->iso }}">
                         @php
-                            $block_fillings = $block->fillings();
+                            $block_fillings = $block->fillings($language);
                         @endphp
 
                         @foreach($block->template->attrs as $attribute)

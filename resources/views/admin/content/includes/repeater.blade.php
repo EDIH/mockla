@@ -26,6 +26,11 @@
                 >
                 <input
                         type="hidden"
+                        name="old_iterations[{{ class_basename(\App\Models\BlockTemplateRepeaterIteration::class) }}_{{ $iteration->id }}][lang_id]"
+                        value="{{ $language->id }}"
+                >
+                <input
+                        type="hidden"
                         name="old_iterations[{{ class_basename(\App\Models\BlockTemplateRepeaterIteration::class) }}_{{ $iteration->id }}][order]"
                         class="order"
                         value="{{ $iteration->order }}"
@@ -56,6 +61,11 @@
                     name="iterations[{{ $u_id }}][parent_id]"
                     value="{{ $parent_u_id }}"
                     {{--                        value="{{ class_basename($content) }}_{{ $parent_id }}"--}}
+            >
+            <input
+                    type="hidden"
+                    name="iterations[{{ $u_id }}][lang_id]"
+                    value="{{ $language->id }}"
             >
             <input
                     type="hidden"

@@ -17,6 +17,11 @@
         value="{{ $repeater->id }}"
     >
     <input
+            type="hidden"
+            name="iterations[{{ $u_id }}][lang_id]"
+            value="{{ $language->id }}"
+    >
+    <input
         type="hidden"
         name="iterations[{{ $u_id }}][order]"
         class="order"

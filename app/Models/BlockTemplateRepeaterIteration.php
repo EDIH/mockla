@@ -51,7 +51,8 @@ class BlockTemplateRepeaterIteration extends Model
 
     protected $fillable = [
         'block_template_repeater_id',
-        'order'
+        'order',
+        'lang_id',
     ];
 
 

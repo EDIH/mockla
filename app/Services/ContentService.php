@@ -183,7 +183,8 @@ class ContentService
 
                         $iteration = $parent_model->iterations()->create([
                             'block_template_repeater_id' => $iteration_data['repeater_id'],
-                            'order' => $iteration_data['order']
+                            'order' => $iteration_data['order'],
+                            'lang_id' => $iteration_data['lang_id']
                         ]);
 
                         $models[$iteration_id] = $iteration;

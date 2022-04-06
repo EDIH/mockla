@@ -161,10 +161,11 @@ class Block extends Model
         return $this->morphMany(BlockTemplateRepeaterIteration::class, 'iterable')->with('iterations');
     }
 
-    public function groupedIterationsByRepeaterId($model)
+    public function groupedIterationsByRepeaterId($model, $language)
     {
         $groupedByRepeater = $model
             ->iterations()
+            ->where('lang_id', $language->id)
             ->orderBy('order')
             ->with('contents.translate')
             ->get()
@@ -173,7 +174,7 @@ class Block extends Model
         foreach ($groupedByRepeater as $iterations) {
             foreach ($iterations as $iteration) {
                 if ($iteration->iterations()->count()) {
-                    $iteration['iterations'] = $this->groupedIterationsByRepeaterId($iteration);
+                    $iteration['iterations'] = $this->groupedIterationsByRepeaterId($iteration, $language);
                 }
             }
         }
@@ -188,14 +189,14 @@ class Block extends Model
     /**
      * @return Collection
      */
-    public function fillings(): Collection
+    public function fillings(Language $language): Collection
     {
         $fillings = collect([
             'contents' => $this
                 ->contents()
                 ->with('translations')
                 ->get(),
-            'iterations' => $this->groupedIterationsByRepeaterId($this)
+            'iterations' => $this->groupedIterationsByRepeaterId($this, $language)
         ]);
 //dd($fillings['contents']);
         return $fillings;
