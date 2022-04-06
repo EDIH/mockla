@@ -111,7 +111,7 @@ $counter = 100;
                                 </div>
                             </div>
                         @endforeach
-                        @if($innerproperties['item-lnk-by']['value'])
+                        @if($innerproperties['item-lnk-by']['value'] ?? '')
                             <div class="offer__buttons">
                                 <a href="{{ $innerproperties['item-lnk-by']['value'] ?? '' }}"
                                    class="offer__button pink-button js-buy-offer">
