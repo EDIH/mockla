@@ -71,6 +71,7 @@ use App\Models\BlockContent;
                         @endforeach
 
                         @foreach($block->template->repeaters as $repeater)
+{{--                            {{ dd($block_fillings['iterations'][$repeater->id]) }}--}}
                             @include('admin.content.includes.repeater', [
                                 'iterations' => $block_fillings['iterations'][$repeater->id] ?? null,
                                 'content' => $block,

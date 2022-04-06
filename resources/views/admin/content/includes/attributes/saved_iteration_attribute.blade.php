@@ -19,6 +19,10 @@
             $value = $attribute->default_value;
         }
 
+        if(false) {
+            dd($content, $contents[$attribute->id]['translate']);
+        }
+
     } else {
         $input_name = "old_iterations[{$iteration_class_name}_{$iteration->id}][attributes][{$language->iso}][{$attribute->id}]";
         $value = $attribute->default_value;
