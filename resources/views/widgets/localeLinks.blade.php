@@ -11,13 +11,18 @@
             </div>
         @endif
     @endforeach
-    <div class="header__language-else" style="display: none">
-        <div class="header__language-else-wrapper">
-            @foreach($links as $iso => $locale)
-                @if($locale['link'])
-                    <a href="{{ url($locale['link']) }}"><img src='{{ url("/img/header/{$iso}.svg") }}' alt="{{ $iso }}">{{ $locale['text'] }}</a>
-                @endif
-            @endforeach
-        </div>
-    </div>
+    @php
+        $langs = Cache::get('languages')->count();
+    @endphp
+        @if($langs)
+            <div class="header__language-else" style="display: none">
+                <div class="header__language-else-wrapper">
+                    @foreach($links as $iso => $locale)
+                        @if($locale['link'])
+                            <a href="{{ url($locale['link']) }}"><img src='{{ url("/img/header/{$iso}.svg") }}' alt="{{ $iso }}">{{ $locale['text'] }}</a>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        @endif
 </div>

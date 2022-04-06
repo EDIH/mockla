@@ -40,7 +40,19 @@ $contents = $block->mappedByKey();
 
             </ul>
         </nav>
-        @widget('localeLinks', ['page' => $page])
+{{--        @php--}}
+
+{{--                $class_name = $contents['lang-visible']--}}
+{{--                ->content--}}
+{{--                ->attr--}}
+{{--                ->setting--}}
+{{--                ->decodedProperties['options_list'][$contents['lang-visible']['value']]['value'];--}}
+{{--        @endphp--}}
+{{--        {{$contents['lang-visible']}}--}}
+        @if($contents['lang-visible'] == 'Show')
+            @widget('localeLinks', ['page' => $page])
+        @endif
+
         <div class="header__login">
             <a class="orange-button" href="{{ $contents['button-lnk']['value'] }}">{{ $contents['button-title']['value'] }}</a>
         </div>
