@@ -58,7 +58,7 @@ Route::group([
     'middleware' => 'auth',
     'as' => 'admin.'
 ], function () {
-    \Illuminate\Support\Facades\App::setLocale('uk');
+    \Illuminate\Support\Facades\App::setLocale('ru');
     Route::get('', function () {
         return redirect('admin/pages');
     });
