@@ -13,7 +13,7 @@ $contents = $block->mappedByKey();
                 <li class="header__nav-item has-child">
                     <div class="header__nav-lnk">{{ $var['yolllo-products'] }}</div>
                     <ul class="child-menu-list-child">
-                        @foreach($block->iterations as $offer)
+                        @foreach($block->localeIterations as $offer)
                             @php
                                 /**
              * @var $offer \App\Models\BlockTemplateRepeaterIteration
@@ -40,8 +40,7 @@ $contents = $block->mappedByKey();
 
             </ul>
         </nav>
-{{--        {{$contents['lang-visible']}}--}}
-        @if($contents['lang-visible']['value'])
+        @if($contents['lang-visible']['value'] == 1)
             @widget('localeLinks', ['page' => $page])
         @endif
 
@@ -59,7 +58,7 @@ $contents = $block->mappedByKey();
                     <li class="header__nav-item has-child">
                         <div class="header__nav-lnk">{{ $var['yolllo-products'] }}</div>
                         <ul class="child-menu-list-child">
-                            @foreach($block->iterations as $offer)
+                            @foreach($block->localeIterations as $offer)
                                 @php
                                     /**
                  * @var $offer \App\Models\BlockTemplateRepeaterIteration
