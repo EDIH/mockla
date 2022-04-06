@@ -16,14 +16,14 @@ $contents = $block->mappedByKey();
                     {{ $contents['title']['value'] }}
                 </h2>
                 <label for="" class="steps__label">
-                    <p class="steps__subtitle section-subtitle">How much do you want to earn per month?</p>
+                    <p class="steps__subtitle section-subtitle">{{ $contents['first-label']['value'] }}</p>
                     <select class="steps__select elem-select">
                         <option value="1000">1000$</option>
                         <option value="2000">2000$</option>
                     </select>
                 </label>
                 <label for="" class="steps__label" data-aos="fade-right" data-aos-delay="300">
-                    <p class="steps__subtitle section-subtitle">How much time per day are you willing to allocate?</p>
+                    <p class="steps__subtitle section-subtitle">{{ $contents['second-label']['value'] }}</p>
                     <select class="steps__select elem-select">
                         <option value="1 hour">1 hour</option>
                         <option value="2 hour">2 hour</option>
