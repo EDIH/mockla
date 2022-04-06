@@ -12,7 +12,7 @@ $contents = $block->mappedByKey();
             <ul class="header__nav-list">
                 <li class="header__nav-item has-child">
                     <div class="header__nav-lnk">{{ $var['yolllo-products'] }}</div>
-
+@dd($block->localeIterations->count())
                     @if($status ==1)
                         <ul class="child-menu-list-child">
                             @foreach($block->localeIterations as $offer)
