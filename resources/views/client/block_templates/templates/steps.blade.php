@@ -23,8 +23,17 @@ dd($block->localeIterations()->where('block_template_repeater_id', $ids['select-
                 <label for="" class="steps__label">
                     <p class="steps__subtitle section-subtitle">{{ $contents['first-label']['value'] }}</p>
                     <select class="steps__select elem-select">
-                        <option value="1000">1000$</option>
-                        <option value="2000">2000$</option>
+                        @foreach($block->localeIterations()->where('block_template_repeater_id', $ids['select-item-bottom']->id)->get() as $item)
+                            @php
+                                /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
+                                $properties = $item->mappedByKey();
+                            @endphp
+                            <option value="1000" data-lnk="">1000$</option>
+                            @php
+                                /** @var $counter int */
+                                $counter += 100;
+                            @endphp
+                        @endforeach
                     </select>
                 </label>
                 <label for="" class="steps__label" data-aos="fade-right" data-aos-delay="300">
