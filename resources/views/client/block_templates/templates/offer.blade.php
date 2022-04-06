@@ -58,7 +58,6 @@ $counter = 100;
                         /** @var $offer \App\Models\BlockTemplateRepeaterIteration */
                             $properties = $offer->mappedByKey();
                     @endphp
-                    {{--                    @dd($properties)--}}
                     <div class="offer__nav-item tabs-nav-item" data-aos="fade-right" data-aos-delay="{{ $counter }}">
                         <div class="offer__nav-name">
                             {{ $properties['tab-name']['value'] ?? '' }}
@@ -112,15 +111,17 @@ $counter = 100;
                                 </div>
                             </div>
                         @endforeach
-                        <div class="offer__buttons">
-                            <a href="{{ $innerproperties['item-lnk-by']['value'] ?? '' }}"
-                               class="offer__button pink-button js-buy-offer">
-                                Buy now for {!! $innerproperties['item-price']['value'] ?? '' !!}
-                            </a>
-                            <div class="offer__button offer__discount js-buy-discount">
-                                Discount {!! $innerproperties['item-discount']['value'] ?? '' !!}
+                        @if($innerproperties['item-lnk-by']['value'])
+                            <div class="offer__buttons">
+                                <a href="{{ $innerproperties['item-lnk-by']['value'] ?? '' }}"
+                                   class="offer__button pink-button js-buy-offer">
+                                    {!! $contents['button-name']['value'] . " " . $innerproperties['item-price']['value'] ?? '' !!}
+                                </a>
+                                <div class="offer__button offer__discount js-buy-discount">
+                                    {!! $contents['discount-name']['value'] . " " . $innerproperties['item-discount']['value'] ?? '' !!}
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 @endforeach
             </div>

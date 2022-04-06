@@ -23,6 +23,13 @@ $(document ).ready(function() {
         });
     }
 
+    if($('.steps__select').length){
+        $( ".steps__select" ).change(function() {
+            var conceptName = $('.steps__select :selected').data('lnk');
+            $("a.steps__submit").attr("href", ""+ conceptName + "");
+        });
+    }
+
     if($('.header__burger').length){
         $(".header__burger").click(function() {
             $('body').toggleClass('lock');

@@ -1,4 +1,10 @@
-    </article>
+
+<?php
+$contents = $block->mappedByKey();
+$ids = $block->repeaters->keyBy('key');
+
+?>
+</article>
 </main>
 <footer class="footer">
     <div class="footer__container main-container">
@@ -36,22 +42,15 @@
                 </div>
                 <nav class="footer__navigate-nav">
                     <ul class="footer__navigate-list">
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Market</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">NFT Packaging</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Social Platform</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Social Platform</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Yolllo Social Club</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Yolllo DCP</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Yolllo CRM</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Vividly</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Social Perfomance</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Yolllo Ads</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Yolllo Rating Mark</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Yolllo Token</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Worldwide payment system</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Yolllo Membership Packages</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Streams of Revenue</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Loyalty and Referral programs</a></li>
+                        @foreach($block->localeIterations()->where('block_template_repeater_id', $ids['menu-products']->id)->get() as $item)
+                            @php
+                                /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
+                                $properties = $item->mappedByKey();
+                            @endphp
+                            @if($properties['menu-products-lnk']['value'])
+                                <li class="footer__navigate-item"><a class="footer__navigate-link" href="{{ $properties['menu-products-lnk']['value'] }}">{{ $properties['menu-products-name']['value'] }}</a></li>
+                            @endif
+                        @endforeach
                     </ul>
                 </nav>
             </div>
@@ -65,11 +64,15 @@
                 </div>
                 <nav class="footer__navigate-nav">
                     <ul class="footer__navigate-list">
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Why Yolllo</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Privacy Policy</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Terms of Service</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Refund and Return Policy</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Contact us</a></li>
+                        @foreach($block->localeIterations()->where('block_template_repeater_id', $ids['menu-info']->id)->get() as $item)
+                            @php
+                                /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
+                                $properties = $item->mappedByKey();
+                            @endphp
+                            @if($properties['menu-info-lnk']['value'])
+                                <li class="footer__navigate-item"><a class="footer__navigate-link" href="{{ $properties['menu-info-lnk']['value'] }}">{{ $properties['menu-info-name']['value'] }}</a></li>
+                            @endif
+                        @endforeach
                     </ul>
                 </nav>
             </div>
@@ -83,9 +86,15 @@
                 </div>
                 <nav class="footer__navigate-nav">
                     <ul class="footer__navigate-list">
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Become a country leader</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">Become a member of ecosystem</a></li>
-                        <li class="footer__navigate-item"><a class="footer__navigate-link" href="#">FAQ</a></li>
+                        @foreach($block->localeIterations()->where('block_template_repeater_id', $ids['menu-engage']->id)->get() as $item)
+                            @php
+                                /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
+                                $properties = $item->mappedByKey();
+                            @endphp
+                            @if($properties['menu-engage-lnk']['value'])
+                                <li class="footer__navigate-item"><a class="footer__navigate-link" href="{{ $properties['menu-engage-lnk']['value'] }}">{{ $properties['menu-engage-name']['value'] }}</a></li>
+                            @endif
+                        @endforeach
                     </ul>
                 </nav>
             </div>

@@ -1,10 +1,7 @@
 <?php
 $contents = $block->mappedByKey();
-//'select-item-top'
 $ids = $block->repeaters->keyBy('key');
 $counter = 0;
-//$iterations = $block->localeIterations();
-//dd($block->localeIterations()->where('block_template_repeater_id', $ids['select-item-bottom']->id)->get());
 
 ?>
 <section class="steps main-container">
@@ -29,22 +26,32 @@ $counter = 0;
                                 /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
                                 $properties = $item->mappedByKey();
                             @endphp
-                            <option value="1000" data-lnk="">1000$</option>
-                            @php
-                                /** @var $counter int */
-                                $counter += 100;
-                            @endphp
+                            <option value="1000" data-lnk="{{ url('/') . '/uploads/contents/' . $properties['document']['value'] }}">{{ $properties['price']['value'] }}</option>
                         @endforeach
                     </select>
                 </label>
                 <label for="" class="steps__label" data-aos="fade-right" data-aos-delay="300">
                     <p class="steps__subtitle section-subtitle">{{ $contents['second-label']['value'] }}</p>
                     <select class="steps__select elem-select">
-                        <option value="1 hour">1 hour</option>
-                        <option value="2 hour">2 hour</option>
+                        @foreach($block->localeIterations()->where('block_template_repeater_id', $ids['select-item-bottom']->id)->get() as $item)
+                            @php
+                                /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
+                                $properties = $item->mappedByKey();
+                            @endphp
+                            <option value="1000">{{ $properties['timings']['value'] }}</option>
+                        @endforeach
                     </select>
                 </label>
-                <a href="№" download class="steps__submit orange-button">{{ $contents['button-text']['value'] }}</a>
+
+                @foreach($block->localeIterations()->where('block_template_repeater_id', $ids['select-item-top']->id)->get() as $item)
+                @php
+                    /**  @var  $item \App\Models\BlockTemplateRepeaterIteration */
+                    $properties = $item->mappedByKey();
+                @endphp
+                @if ($loop->first)
+                        <a href="{{ url('/') . '/uploads/contents/' . $properties['document']['value'] }}" download class="steps__submit orange-button">{{ $contents['button-text']['value'] }}</a>
+                @endif
+                @endforeach
             </form>
         </div>
     </div>
