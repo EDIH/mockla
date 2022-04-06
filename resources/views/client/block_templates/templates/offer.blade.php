@@ -16,7 +16,7 @@ $counter = 100;
         <div class="offer__content tabs-elements">
             <div class="offer__select">
                 <div class="offer__select-current">
-                    @foreach($block->iterations as $offer)
+                    @foreach($block->localeIterations as $offer)
                         @php
                             /** @var $offer \App\Models\BlockTemplateRepeaterIteration */
                             $properties = $offer->mappedByKey();
@@ -34,7 +34,7 @@ $counter = 100;
                     @endforeach
                 </div>
                 <div class="offer__select-else">
-                    @foreach($block->iterations as $offer)
+                    @foreach($block->localeIterations as $offer)
                         @php
                             /** @var $offer \App\Models\BlockTemplateRepeaterIteration */
                             $properties = $offer->mappedByKey();
@@ -52,7 +52,7 @@ $counter = 100;
                 </div>
             </div>
             <div class="offer__nav tabs-nav">
-                @foreach($block->iterations as $offer)
+                @foreach($block->localeIterations as $offer)
                     @php
                         /** @var $offer \App\Models\BlockTemplateRepeaterIteration */
                             $properties = $offer->mappedByKey();
@@ -73,18 +73,17 @@ $counter = 100;
                 @endforeach
             </div>
             <div class="offer__offer tabs-content" data-aos="fade-up" data-aos-delay="500">
-                @foreach($block->iterations as $offer)
+                @foreach($block->localeIterations as $offer)
                     <div class="offer__offer-item tabs-content-item">
                         @php
                             /** @var  $offer \App\Models\BlockTemplateRepeaterIteration */
                             $innerproperties = $offer->mappedByKey();
                         @endphp
-                        @foreach($offer->iterations as $content)
+                        @foreach($offer->localeIterations as $content)
                             @php
 
                                 /** @var $content \App\Models\BlockTemplateRepeaterIteration */
                                     $inner_properties = $content->mappedByKey();
-
                                     $class_name = $inner_properties['type-row']
                                     ->content
                                     ->attr

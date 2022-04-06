@@ -161,6 +161,14 @@ class Block extends Model
         return $this->morphMany(BlockTemplateRepeaterIteration::class, 'iterable')->with('iterations');
     }
 
+    public function localeIterations(): MorphMany
+    {
+        return $this
+            ->morphMany(BlockTemplateRepeaterIteration::class, 'iterable')
+            ->where('lang_id', Cache::get('languages')->get(App::getLocale()))
+            ->with('iterations');
+    }
+
     public function groupedIterationsByRepeaterId($model, $language)
     {
         $groupedByRepeater = $model

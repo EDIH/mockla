@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * App\Models\BlockTemplateRepeaterIteration
@@ -107,5 +109,12 @@ class BlockTemplateRepeaterIteration extends Model
     public function iterations(): MorphMany
     {
         return $this->morphMany(BlockTemplateRepeaterIteration::class, 'iterable');
+    }
+
+    public function localeIterations(): MorphMany
+    {
+        return $this
+            ->morphMany(BlockTemplateRepeaterIteration::class, 'iterable')
+            ->where('lang_id', Cache::get('languages')->get(App::getLocale()));
     }
 }
