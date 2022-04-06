@@ -106,10 +106,16 @@ class PageRepository
      * @param string $alias
      * @return Page
      */
-    public function getByAlias(string $alias): Page
+    public function getByAlias(string $alias = null): Page
     {
 //        TOFIX add default model value instead 404
 //        dd(App::getLocale());
+        if(!$alias){
+            return
+                Page::where('id', 83)
+                    ->with(['seo', 'addition'])
+                    ->first();
+        }
         return
             Page::whereHas('seo', function (Builder $query) use ($alias) {
                 $query->where('alias', $alias);

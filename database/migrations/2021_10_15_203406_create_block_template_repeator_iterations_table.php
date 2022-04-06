@@ -17,6 +17,7 @@ class CreateBlockTemplateRepeaterIterationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('block_template_repeater_id');
             $table->unsignedBigInteger('block_id');
+            $table->unsignedBigInteger('lang_id')->nullable();
             $table->unsignedBigInteger('admin_created_id')->nullable();
             $table->unsignedBigInteger('admin_updated_id')->nullable();
             $table->timestamps();
@@ -29,6 +30,9 @@ class CreateBlockTemplateRepeaterIterationsTable extends Migration
             $table
                 ->foreign('block_id')
                 ->references('id')->on('blocks');
+            $table
+                ->foreign('lang_id')
+                ->references('id')->on('languages');
         });
     }
 

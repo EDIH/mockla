@@ -91,7 +91,7 @@ class PageController extends Controller
             return view("client.module_items.landings.item", compact('module_item', 'page'));
         }
 
-        $page = $this->pageRepository->getByAlias(request()->alias ?? 'main');
+        $page = $this->pageRepository->getByAlias(request()->alias);
 //        dd($page);
 
         if ($page->auth_only && !auth()->user()) {
