@@ -40,16 +40,8 @@ $contents = $block->mappedByKey();
 
             </ul>
         </nav>
-{{--        @php--}}
-
-{{--                $class_name = $contents['lang-visible']--}}
-{{--                ->content--}}
-{{--                ->attr--}}
-{{--                ->setting--}}
-{{--                ->decodedProperties['options_list'][$contents['lang-visible']['value']]['value'];--}}
-{{--        @endphp--}}
 {{--        {{$contents['lang-visible']}}--}}
-        @if($contents['lang-visible'] == 'Show')
+        @if($contents['lang-visible']['value'])
             @widget('localeLinks', ['page' => $page])
         @endif
 

@@ -27,7 +27,7 @@
                 <input
                         type="hidden"
                         name="old_iterations[{{ class_basename(\App\Models\BlockTemplateRepeaterIteration::class) }}_{{ $iteration->id }}][lang_id]"
-                        value="{{ $language->id }}"
+                        value="{{ $iteration->lang_id }}"
                 >
                 <input
                         type="hidden"
