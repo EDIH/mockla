@@ -2,8 +2,9 @@
 $contents = $block->mappedByKey();
 //'select-item-top'
 $ids = $block->repeaters->keyBy('key');
-$iterations = $block->localeIterations();
-dd($block->localeIterations()->where('block_template_repeater_id', $ids['select-item-bottom']->id)->get());
+$counter = 0;
+//$iterations = $block->localeIterations();
+//dd($block->localeIterations()->where('block_template_repeater_id', $ids['select-item-bottom']->id)->get());
 
 ?>
 <section class="steps main-container">
