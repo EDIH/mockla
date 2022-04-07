@@ -1,4 +1,4 @@
-<section class="сhoose main-container">
+<section class="сhoose main-container" id="сhoose">
     <div class="сhoose__container">
         <h2 class="сhoose__title section-title">
             Choose your way!

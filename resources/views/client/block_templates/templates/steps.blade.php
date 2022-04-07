@@ -4,7 +4,7 @@ $ids = $block->repeaters->keyBy('key');
 $counter = 0;
 
 ?>
-<section class="steps main-container">
+<section class="steps main-container" id="steps">
     <div class="steps__container padding-right padding-left">
         <div class="steps__image" data-aos="fade-right" data-aos-delay="100">
             <picture>

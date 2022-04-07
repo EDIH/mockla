@@ -1,4 +1,4 @@
-<section class="appointment main-container">
+<section class="appointment main-container" id="appointment">
     <div class="appointment__container">
         <form class="appointment__form" action="" method="">
             <div class="appointment__title">

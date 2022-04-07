@@ -5,7 +5,7 @@
 $contents = $block->mappedByKey();
 $counter = 100;
 ?>
-<section class="offer main-container">
+<section class="offer main-container" id="offer">
     <div class="offer__cotainer main-container">
         <div class="offer__header">
             <h2 class="offer__title section-title" data-aos="fade-right" data-aos-delay="100">
@@ -23,7 +23,7 @@ $counter = 100;
                             $properties = $offer->mappedByKey();
                         @endphp
                         @if ($loop->first)
-                            <div class="offer__select-item">
+                            <div class="offer__select-item"  href="#offer">
                                 <div class="offer__nav-name">
                                     {{ $properties['tab-name']['value'] ?? '' }}
                                 </div>
@@ -41,7 +41,7 @@ $counter = 100;
                             $properties = $offer->mappedByKey();
                         @endphp
                         {{--                    @dd($properties)--}}
-                        <div class="offer__select-item select-nav-item">
+                        <div class="offer__select-item select-nav-item"  href="#offer">
                             <div class="offer__nav-name">
                                 {{ $properties['tab-name']['value'] ?? '' }}
                             </div>
@@ -58,7 +58,7 @@ $counter = 100;
                         /** @var $offer \App\Models\BlockTemplateRepeaterIteration */
                             $properties = $offer->mappedByKey();
                     @endphp
-                    <div class="offer__nav-item tabs-nav-item" data-aos="fade-right" data-aos-delay="{{ $counter }}">
+                    <div class="offer__nav-item tabs-nav-item" data-aos="fade-right" data-aos-delay="{{ $counter }}"  href="#offer">
                         <div class="offer__nav-name">
                             {{ $properties['tab-name']['value'] ?? '' }}
                         </div>

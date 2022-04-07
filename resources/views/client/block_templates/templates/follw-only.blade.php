@@ -1,4 +1,4 @@
-<section class="follow follow-only main-container">
+<section class="follow follow-only main-container" id="follow">
     <div class="follow__container main-container">
         <h2 class="follow__title section-title">
             Let us follow you in:

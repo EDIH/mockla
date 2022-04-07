@@ -3,7 +3,7 @@ $contents = $block->mappedByKey();
 $module = \App\Models\Module::where('name', 'mockup')->first();
 $items = $module->items;
 ?>
-<section class="list">
+<section class="list" id="list">
     <div class="list__container main-container">
         <h2 class="list__title section-title">
             {{ $contents['title']['value'] }}"

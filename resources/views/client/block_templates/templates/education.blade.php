@@ -1,7 +1,7 @@
 <?php
 $contents = $block->mappedByKey();
 ?>
-<section class="education main-container">
+<section class="education main-container" id="education">
     <div class="education__container main-container">
         <div class="education__image" data-aos="fade-up" data-aos-delay="100">
             <img src="{{  url('/') . '/uploads/contents/' . $contents['image']['value'] }}">

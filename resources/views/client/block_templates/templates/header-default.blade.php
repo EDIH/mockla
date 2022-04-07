@@ -21,10 +21,10 @@ $contents = $block->mappedByKey();
                  */
                                         $properties = $offer->mappedByKey();
                                 @endphp
-                                <li class="header__nav-item">
-                                    <a href="{{ $properties['lnk-item']['value'] ?? '' }}"
-                                       class="header__nav-lnk">{{ $properties['nav-item']['value'] ?? '' }}</a>
-                                </li>
+{{--                                <li class="header__nav-item">--}}
+{{--                                    <a href="{{ $properties['lnk-item']['value'] ?? '' }}"--}}
+{{--                                       class="header__nav-lnk">{{ $properties['nav-item']['value'] ?? '' }}</a>--}}
+{{--                                </li>--}}
                             @endforeach
                         </ul>
                     </li>
@@ -71,10 +71,10 @@ $contents = $block->mappedByKey();
                  */
                                         $properties = $offer->mappedByKey();
                                 @endphp
-                                <li class="header__nav-item">
-                                    <a href="{{ $properties['lnk-item']['value'] ?? '' }}"
-                                       class="header__nav-lnk">{{ $properties['nav-item']['value'] ?? '' }}</a>
-                                </li>
+{{--                                <li class="header__nav-item">--}}
+{{--                                    <a href="{{ $properties['lnk-item']['value'] ?? '' }}"--}}
+{{--                                       class="header__nav-lnk">{{ $properties['nav-item']['value'] ?? '' }}</a>--}}
+{{--                                </li>--}}
                             @endforeach
                         </ul>
                     </li>
@@ -93,7 +93,9 @@ $contents = $block->mappedByKey();
                     @endif
                 </ul>
             </nav>
-            @widget('localeLinks', ['page' => $page])
+            @if($contents['lang-visible']['value'] == 1)
+                @widget('localeLinks', ['page' => $page])
+            @endif
             <div class="header__login">
                 <a class="orange-button"
                    href="{{ $contents['button-lnk']['value'] }}">{{ $contents['button-title']['value'] }}</a>

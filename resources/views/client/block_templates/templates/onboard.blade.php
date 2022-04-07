@@ -1,4 +1,4 @@
-<section class="onboard main-container">
+<section class="onboard main-container" id="onboard">
     <div class="onboard__container">
         <h2 class="onboard__title section-title">
             <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">

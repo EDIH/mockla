@@ -4,7 +4,7 @@
  */
 $contents = $block->mappedByKey();
 ?>
-<section class="action">
+<section class="action" id="action">
     <div class="action__container main-container">
         <div class="action__wrapper main-container">
             <div class="action__text">

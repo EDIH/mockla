@@ -1,4 +1,4 @@
-<section class="share padding-left">
+<section class="share padding-left" id="share">
     <div class="share__container">
         <div class="share__content">
             <h2 class="share__title section-title">

@@ -5,7 +5,7 @@
 $contents = $block->mappedByKey();
 $counter = 100;
 ?>
-<section class="familar">
+<section class="familar" id="familar">
     <div class="familar__container main-container">
         <div class="familar__text">
             <h2 class="familar__title section-title" data-aos="fade-right" data-aos-delay="100">
@@ -26,7 +26,7 @@ $counter = 100;
                                  alt="{{ $properties['name']['value'] }}">
                         </div>
                         <div class="familar__cont">
-                            <h4 class="familar__name">{{ $properties['name']['value'] }}</h4>
+                            <h4 class="familar__name">{!!   $properties['name']['value'] !!}</h4>
                             <p class="familar__desc">{{ $properties['desc']['value'] }}</p>
                             @if( $properties['lnk']['value'] )
                                 <a href="{{ $properties['lnk']['value'] }}" class="familar__lnk">

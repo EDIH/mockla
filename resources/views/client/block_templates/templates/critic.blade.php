@@ -1,7 +1,7 @@
 <?php
 $contents = $block->mappedByKey();
 ?>
-<section class="critic">
+<section class="critic" id="critic">
     <div class="critic__container main-container">
         <div class="critic__image" data-aos="fade-right" data-aos-delay="200">
             <img src="{{  url('/') . '/uploads/contents/' . $contents['image']['value'] }}" alt="{{ $contents['third']['value'] }}">

@@ -1,4 +1,4 @@
-<section class="way">
+<section class="way" id="way">
     <div class="way__container padding-right">
         <div class="way__image">
             <img src="{{url('/'). '/img/templates/way/img.jpg'}}" alt="We're lucky with you!">
