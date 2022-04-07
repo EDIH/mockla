@@ -3,7 +3,7 @@ $contents = $block->mappedByKey();
 $module = \App\Models\Module::where('name', 'plan')->first();
 $items = $module->items;
 ?>
-<section class="plans">
+<section class="plans" id="plans">
     <div class="plans__rings">
         <img src="{{ url('/') }}/img/templates/plans/rings.png">
     </div>

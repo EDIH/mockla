@@ -1,7 +1,7 @@
 <?php
 $contents = $block->mappedByKey();
 ?>
-<section class="unique main-container">
+<section class="unique main-container" id="unique">
     <div class="unique__container">
         <div class="unique__design">
             <img src="{{ url('/') }}/img/templates/unique/design.svg">

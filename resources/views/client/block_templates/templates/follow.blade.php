@@ -1,7 +1,7 @@
 <?php
 $contents = $block->mappedByKey();
 ?>
-<section class="follow main-container">
+<section class="follow main-container" id="follow">
     <div class="follow__container main-container">
         <h2 class="follow__title section-title" data-aos="fade-right" data-aos-delay="100">
             {{ $contents['title']['value'] }}

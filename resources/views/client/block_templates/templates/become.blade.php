@@ -1,4 +1,4 @@
-<section class="become main-container">
+<section class="become main-container" id="become">
     <div class="become__container">
         <div class="become__left">
             <h2 class="become__title section-title">

@@ -1,7 +1,7 @@
 <?php
 $contents = $block->mappedByKey();
 ?>
-<section class="most">
+<section class="most" id="most">
 {{--    <div class="most__design">--}}
 {{--        <img src="{{ url('/') }}/img/templates/most/design.svg">--}}
 {{--    </div>--}}

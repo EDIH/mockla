@@ -21,10 +21,10 @@ $contents = $block->mappedByKey();
                  */
                                         $properties = $offer->mappedByKey();
                                 @endphp
-                                <li class="header__nav-item">
-                                    <a href="{{ $properties['lnk-item']['value'] ?? '' }}"
-                                       class="header__nav-lnk">{{ $properties['nav-item']['value'] ?? '' }}</a>
-                                </li>
+{{--                                <li class="header__nav-item">--}}
+{{--                                    <a href="{{ $properties['lnk-item']['value'] ?? '' }}"--}}
+{{--                                       class="header__nav-lnk">{{ $properties['nav-item']['value'] ?? '' }}</a>--}}
+{{--                                </li>--}}
                             @endforeach
                         </ul>
                     </li>
@@ -71,10 +71,10 @@ $contents = $block->mappedByKey();
                  */
                                         $properties = $offer->mappedByKey();
                                 @endphp
-                                <li class="header__nav-item">
-                                    <a href="{{ $properties['lnk-item']['value'] ?? '' }}"
-                                       class="header__nav-lnk">{{ $properties['nav-item']['value'] ?? '' }}</a>
-                                </li>
+{{--                                <li class="header__nav-item">--}}
+{{--                                    <a href="{{ $properties['lnk-item']['value'] ?? '' }}"--}}
+{{--                                       class="header__nav-lnk">{{ $properties['nav-item']['value'] ?? '' }}</a>--}}
+{{--                                </li>--}}
                             @endforeach
                         </ul>
                     </li>

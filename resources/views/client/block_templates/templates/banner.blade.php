@@ -7,7 +7,7 @@ use App\Models\Block;
 
 $contents = $block->mappedByKey();
 ?>
-<section class="banner main-container">
+<section class="banner main-container" id="banner">
     <div class="banner__container padding-left padding-right">
         <div class="banner__left">
             <h2 class="banner__title" data-aos="fade-right" data-aos-delay="100">

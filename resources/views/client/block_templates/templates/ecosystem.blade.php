@@ -5,7 +5,7 @@
 $contents = $block->mappedByKey();
 $counter = 100;
 ?>
-<section class="ecosystem main-container">
+<section class="ecosystem main-container" id="ecosystem">
     <div class="ecosystem__container main-container">
         <h2 class="ecosystem__title section-title" data-aos="fade-right" data-aos-delay="100">
             {{ $contents['title']['value'] }}

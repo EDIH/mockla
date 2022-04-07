@@ -1,4 +1,4 @@
-<section class="journey">
+<section class="journey" id="journey">
     <div class="journey__container">
         <h2 class="journey__title section-title">
             Let the journey begin!
