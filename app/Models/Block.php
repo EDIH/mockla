@@ -175,7 +175,7 @@ class Block extends Model
             ->iterations()
             ->where('lang_id', $language->id)
             ->orderBy('order')
-            ->with('contents.translate')
+            ->with('contents.translations')
             ->get()
             ->groupBy('block_template_repeater_id');
 

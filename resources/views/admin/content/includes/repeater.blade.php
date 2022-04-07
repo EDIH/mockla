@@ -212,6 +212,14 @@
                     @endswitch
                 </div>
             @endforeach
+{{--@dd($parent_type)--}}
+            @foreach($repeater->repeaters as $sub_repeater)
+                @include('admin.content.includes.repeater', [
+                    'repeater' => $sub_repeater,
+                    'parent_u_id' => $u_id,
+                    'parent_type' => 'BlockTemplateRepeater',
+                ])
+            @endforeach
         </div>
     </div>
 @endif

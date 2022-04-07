@@ -174,7 +174,7 @@ class ContentService
 
             if (isset($data['iterations'])) {
                     foreach ($data['iterations'] as $iteration_id => $iteration_data) {
-//                    print_r($iteration_data);
+//                    dd($iteration_data);
 
                         $parent_key = $iteration_data['parent_id'];
 

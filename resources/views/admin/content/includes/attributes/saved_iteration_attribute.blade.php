@@ -8,20 +8,20 @@
 
 
     $contents = $iteration['contents']->keyBy('block_template_attribute_id');
+    //dd($contents[$attribute->id]->mappedByLang()[$language->id]);
+    //dd($contents[$attribute->id]);
     $iteration_class_name = class_basename(\App\Models\BlockTemplateRepeaterIteration::class);
     if(isset($contents[$attribute->id])) {
         $content = $contents[$attribute->id];
         $input_name = "old_iterations[{$iteration_class_name}_{$iteration->id}][old_attributes][{$language->iso}][{$content->id}]";
 
-        if(is_object($contents[$attribute->id]['translate'])){
+        //if(is_object($contents[$attribute->id]['translate'])){
             $value = $contents[$attribute->id]->mappedByLang()[$language->id]->value ?? $attribute->default_value;
-        } else {
-            $value = $attribute->default_value;
-        }
+//        } else {
+  //          $value = $attribute->default_value;
+    //    }
 
-        if(false) {
-            dd($content, $contents[$attribute->id]['translate']);
-        }
+
 
     } else {
         $input_name = "old_iterations[{$iteration_class_name}_{$iteration->id}][attributes][{$language->iso}][{$attribute->id}]";
