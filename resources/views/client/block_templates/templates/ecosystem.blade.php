@@ -11,7 +11,7 @@ $counter = 100;
             {{ $contents['title']['value'] }}
         </h2>
         <div class="ecosystem__list">
-            @foreach($block->iterations as $item)
+            @foreach($block->localeIterations as $item)
                 @php
                     $properties = $item->mappedByKey();
                 @endphp

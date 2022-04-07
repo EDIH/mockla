@@ -166,6 +166,7 @@ class Block extends Model
         return $this
             ->morphMany(BlockTemplateRepeaterIteration::class, 'iterable')
             ->where('lang_id', Cache::get('languages')->get(App::getLocale()))
+            ->orderBy('order')
             ->with('iterations');
     }
 
