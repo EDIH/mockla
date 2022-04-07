@@ -1,10 +1,19 @@
 <div class="border border-primary rounded new-iteration {{ $repeater->class }}" id="{{ $u_id }}">
-    <button
-        data-id="{{ $u_id }}"
-        class="btn btn-danger btn-icon content remove-new-iteration"
-    >
-        <i class="fa fa-trash" aria-hidden="true"></i>
-    </button>
+    <div class="iteration-buttons">
+        <div class="move btn">+</div>
+        <div class="devider-block" style="flex: 1"></div>
+        <button
+                data-id="{{ $u_id }}"
+                class="btn btn-danger btn-icon content remove-new-iteration"
+        >
+            <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+        <div class="hide btn">
+            <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7.5 6L14 1" stroke="#0D0E17" stroke-width="2"/>
+            </svg>
+        </div>
+    </div>
     
     <input
         type="hidden"
