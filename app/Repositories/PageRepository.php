@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\Never_;
 
 class PageRepository
 {
@@ -103,8 +104,8 @@ class PageRepository
     }
 
     /**
-     * @param string $alias
-     * @return Page
+     * @param string|null $alias
+     * @return Page|\never
      */
     public function getByAlias(string $alias = null): Page
     {
@@ -116,18 +117,21 @@ class PageRepository
                     ->with(['seo', 'addition'])
                     ->first();
         }
-        return
-            Page::whereHas('seo', function (Builder $query) use ($alias) {
-                $query->where('alias', $alias);
-            })
-                ->with(['seo', 'addition'])
-                ->first()
-            ??
-            Page::whereHas('seo', function (Builder $query) {
-                $query->where('alias', 404);
-            })
-                ->with(['seo', 'addition'])
-                ->first();
+
+        $page = Page::whereHas('seo', function (Builder $query) use ($alias) {
+            $query->where('alias', $alias);
+        })
+            ->with(['seo', 'addition'])
+            ->first();
+
+        return $page ?? abort(404);
+
+//            ??
+//            Page::whereHas('seo', function (Builder $query) {
+//                $query->where('alias', 404);
+//            })
+//                ->with(['seo', 'addition'])
+//                ->first();
 
     }
 }

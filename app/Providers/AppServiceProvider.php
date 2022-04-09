@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use App\Models\BlockTemplate;
 use App\Models\BlockTemplateAttribute;
+use App\Models\Page;
 use App\Models\Variable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -31,8 +33,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $events)
     {
-// add non-approved comments counter to sidebar menu
-//        dd(App::getLocale());
+
+//        handle 404
+        View::composer([
+            'errors::404',
+        ], function ($view) {
+            $view->with([
+                'page' => Page::whereHas('seo', function (Builder $query) {
+                    $query->where('alias', 404);
+                })
+                    ->with(['seo', 'addition'])
+                    ->first()
+            ]);
+        });
+
+
         $variables = Variable::all()
             ->groupBy('section');
 
