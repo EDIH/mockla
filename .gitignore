@@ -26,4 +26,4 @@ public/uploads/*
 public/packages/*
 public/vendor/*
 web.config
-
+/artisan
