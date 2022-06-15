@@ -26,10 +26,18 @@ class LocaleLinksWidget implements ContractWidget
 //        TODO CACHE IT
         $links = [];
         $isoById = Cache::get('languages')->flip();
-
+//        dd($this->page);
+//dd($this->page->seos);
         foreach($this->page->seos as $seo) {
+//            dd($seo);
             $lang_id = $seo->lang_id;
 
+//dd(LanguagesFacade::keyValue(['en', 'fr', 'zh', 'de', 'tr', 'pt'], 'mixed'));
+//dd(LanguagesFacade::keyValue([$isoById->get($lang_id)], 'mixed'));
+//            if(!isset(LanguagesFacade::keyValue([$isoById->get($lang_id)], 'mixed')[0])) {
+//dd($lang_id);die;
+//                dd(LanguagesFacade::keyValue([$isoById->get($lang_id)], 'mixed'));
+//            }
             $text = LanguagesFacade::keyValue([$isoById->get($lang_id)], 'mixed')[0]->value;
 
             if($isoById->get($lang_id) != App::getLocale()) {

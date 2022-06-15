@@ -242,7 +242,7 @@ Route::get('module_items/filter/{params?}', [ModuleItemController::class, 'filte
 Route::group([
     'prefix' => '{lang?}',
     'where' => ['lang' => '[a-zA-Z]{2}'],
-    'middleware' => ['locale']
+    'middleware' => ['locale', 'variables']
 ], function () {
 //    foreach (\App\Models\Module::all() as $module) {
 //        Route::prefix($module->name)->group(function () use ($module) {
@@ -254,6 +254,6 @@ Route::group([
 //    });
     Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show');
 });
-Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show')->middleware('locale');
+Route::get('{alias?}', [PageController::class, 'show'])->name('client.page.show')->middleware(['locale', 'variables']);
 Route::get('/comment/create/{comment}', [CommentController::class, 'create'])->name('client.comment.create')->middleware('auth');
 Route::post('/comment/create', [CommentController::class, 'store'])->name('client.comment.store')->middleware('auth');

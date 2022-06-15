@@ -47,30 +47,9 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
-
-        $variables = Variable::all()
-            ->groupBy('section');
-
-        if (isset($variables['general'])) {
-//            dd($variables['general']);
-            $var = $variables['general']
-                ->mapWithKeys(function ($var) {
-                    return [$var->key => optional($var->translate)->value];
-                });
-        }
-
-        if (isset($variables['contacts'])) {
-            $contacts = $variables['contacts']
-                ->mapWithKeys(function ($var) {
-                    return [$var->key => optional($var->translate)->value];
-                });
-        }
-
         View::share([
             'templates' => BlockTemplate::all(),
             'input_types' => BlockTemplateAttribute::TYPE_LIST,
-            'var' => $var ?? [],
-            'contacts' => $contacts ?? []
         ]);
     }
 }

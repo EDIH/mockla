@@ -67,6 +67,7 @@ class Page extends Model
     protected $fillable = [
         'parent_page_id',
         'auth_only',
+        'is_main'
     ];
 
     protected $softDelete_relations = [
